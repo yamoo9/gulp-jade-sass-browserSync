@@ -1,0 +1,39 @@
+// 믹스인 정의
+@mixin font-face(
+	$font-name     : Dotum,
+	$font-url-eot  : '', // IE 전용 (비표준)
+	$font-url-woff : ''  // WOFF (표준)
+) {
+	@font-face {
+		font-family: $font-name;
+		src:         url($font-url-eot);
+		src:         local(※), url($font-url-woff) format("woff");
+		font-weight: normal;
+		font-style:  normal;
+	}
+}
+
+@mixin keyframes($anim-name: animation) {
+	@-webkit-keyframes $anim-name {
+		// @content 외부에서 전달된 콘텐츠를 이 곳에 치환
+		@content;
+	}
+	@-moz-keyframes $anim-name {
+		@content;
+	}
+	@-o-keyframes $anim-name {
+		@content;
+	}
+	@keyframes $anim-name {
+		@content;
+	}
+}
+
+@mixin opacity($op: 0.3) {
+	-ms-filter: alpha(opacity=#{$op * 100});
+	-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$op*100});
+	filter: alpha(#{$op * 100});
+	-khtml-opacity: $op;
+	-moz-opacity: $op;
+	opacity: $op;
+}

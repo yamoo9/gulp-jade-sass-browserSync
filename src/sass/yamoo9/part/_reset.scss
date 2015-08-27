@@ -1,5 +1,10 @@
 // 대체 선택자(Placeholder Selector)
 // 상속(Inheritance)
+%font-smoothing {
+	-webkit-font-smoothing: antialiased;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+}
+
 %reset-body {
 	margin: 0;
 }

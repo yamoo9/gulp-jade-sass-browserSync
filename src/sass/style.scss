@@ -1,86 +1,36 @@
 @charset "utf-8";
 /*! style.css © yamoo9.net, 2015 */
 
-body {
-	min-width: 960px;
-	max-width: 1100px;
-	margin: 30px auto;
-	font: 0.875rem / 1.5 "Helvetica Neue", Verdana;
-	color: #656565;
-}
-
-.active a {
-	text-decoration: none;
-	padding-top: 2px;
-	border-top: 3px solid;
-}
-
-h1 {
-	font-weight: 100;
-	font-size: 84px;
-	line-height: 1.1;
-	letter-spacing: -0.005em;
-}
-
-.browser-sync {
-	color: #8B6DCF;
-}
-
-.jade {
-	color: #69C88A;
-}
-
-.sass {
-	color: #DC6167;
-}
-
-// * #gnb
 // * --------------------------------
+// * 모듈 호출
+// * --------------------------------
+@import "yamoo9/yamoo9";
 
-// 중첩 규칙
-#gnb ul {
+html {
+	@extend %font-smoothing;
+}
 
-	// Sass 변수
-	$link-color: #657AE3;
-
-	// 가상 요소(Pseudo Element)
-	&::after {
-		content: '';
-		display: block;
-		clear: both;
-	}
-
+body {
+	@extend %reset-body;
 	// 중첩 속성
 	margin: {
-		top: 0;
-		bottom: 0;
-	};
-	padding-left: 0;
-	list-style-type: none;
-
-	li {
-		float: left;
-		margin-right: 10px;
-
-		&.active a {
-			color: darken($link-color, 30%);
-		}
+		top: 100px;
+		bottom: 80px;
 	}
-
-	a {
-		text-decoration: none;
-		color: $link-color;
-
-		// 변수 사용
-
-		// 부모 참조 선택자 &
-		// 가상 클래스(Pseudo Class)
-		&:hover,
-		&:focus {
-			// Sass 컬러 함수: darken($color, $amount)
-			color: darken($link-color, 30%);
-		}
-
+	font: {
+		family: 'Nanum Gothic', Dotum, Sans-Serif;
+		size: 14px;
+		weight: 100;
+		style: normal;
 	}
+}
 
+// 중첩 규칙
+nav,
+div[role=navigation]{
+	ul,
+	ol {
+		// 스타일 모듈 상속: 대체 선택자(%)
+		@extend %reset-list;
+	}
 }
