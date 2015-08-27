@@ -1,0 +1,25 @@
+@charset "UTF-8";
+/*! style.css © yamoo9.net, 2015 */
+body { min-width: 960px; max-width: 1100px; margin: 30px auto; font: 0.875rem / 1.5 "Helvetica Neue", Verdana; color: #656565; }
+
+.active a { text-decoration: none; padding-top: 2px; border-top: 3px solid; }
+
+h1 { font-weight: 100; font-size: 84px; line-height: 1.1; letter-spacing: -0.005em; }
+
+.browser-sync { color: #8B6DCF; }
+
+.jade { color: #69C88A; }
+
+.sass { color: #DC6167; }
+
+#gnb ul { margin-top: 0; margin-bottom: 0; padding-left: 0; list-style-type: none; }
+
+#gnb ul::after { content: ''; display: block; clear: both; }
+
+#gnb ul li { float: left; margin-right: 10px; }
+
+#gnb ul li.active a { color: #1b2f94; }
+
+#gnb ul a { text-decoration: none; color: #657AE3; }
+
+#gnb ul a:hover, #gnb ul a:focus { color: #1b2f94; }
