@@ -1,6 +1,7 @@
 @charset 'utf-8';
 /*! hyundai.css © yamoo9.net, 2015 */
 @import "yamoo9/yamoo9";
+$opacity: 0.3;
 
 // 믹스인 호출
 @include font-face( HyundaiDep, "../font/hyundai_bold.eot", "../font/Hyundai_dep.woff" );
@@ -8,27 +9,14 @@
 
 
 @include keyframes(animationScrollTop) {
-	0% {
-		bottom: 150px;
-	}
-	100% {
-		bottom: 230px;
-	}
+	0%   { bottom: 150px; }
+	100% { bottom: 230px; }
 };
 
-$opacity: 0.3;
 @include keyframes(opacityAni) {
-	0% {
-		@include opacity(0.3);
-	}
-
-	50% {
-		@include opacity(1);
-	}
-
-	100% {
-		@include opacity(0.3);
-	}
+	0%   { @include opacity(0.3); }
+	50%  { @include opacity(1);   }
+	100% { @include opacity(0.3); }
 }
 
 

@@ -1,4 +1,6 @@
-// 믹스인 정의
+// * --------------------------------
+// * @font-face
+// * --------------------------------
 @mixin font-face(
 	$font-name     : Dotum,
 	$font-url-eot  : '', // IE 전용 (비표준)
@@ -13,6 +15,12 @@
 	}
 }
 
+// * --------------------------------
+// * CSS3 Mixins
+// * --------------------------------
+
+// * --------------------------------
+// * @keyframes
 @mixin keyframes($anim-name: animation) {
 	@-webkit-keyframes $anim-name {
 		// @content 외부에서 전달된 콘텐츠를 이 곳에 치환
@@ -29,6 +37,8 @@
 	}
 }
 
+// * --------------------------------
+// * opacity
 @mixin opacity($op: 0.3) {
 	-ms-filter: alpha(opacity=#{$op * 100});
 	-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$op*100});
@@ -36,4 +46,78 @@
 	-khtml-opacity: $op;
 	-moz-opacity: $op;
 	opacity: $op;
+}
+
+// * --------------------------------
+// * box-sizing
+@mixin box-sizing ($box: border-box) {
+	 -webkit-box-sizing: $box;
+		-moz-box-sizing: $box;
+			 box-sizing: $box;
+}
+
+
+// * --------------------------------
+// * border-radius
+@mixin border-radius ($radius: 4px) {
+	-webkit-border-radius: $radius;
+			border-radius: $radius;
+	background-clip: padding-box;
+}
+
+// * --------------------------------
+// * box-shadow
+@mixin box_shadow($args...) {
+	-webkit-box-shadow: $args; /* Android 2.3+, iOS 4.0.2-4.2, Safari 3-4 */
+			box-shadow: $args; /* Chrome 6+, Firefox 4+, IE 9+, iOS 5+, Opera 10.50+ */
+}
+
+// * --------------------------------
+// * transition
+@mixin transition($args...) {
+	-webkit-transition: all 0.3s ease-out;
+			transition: all 0.3s ease-out;
+}
+
+// * --------------------------------
+// * animation
+@mixin animation ($value) {
+	-webkit-animation: $value;
+	   -moz-animation: $value;
+		 -o-animation: $value;
+			animation: $value;
+}
+
+// * --------------------------------
+// * background-size
+@mixin background-size ($width: 100%, $height: 100%) {
+	-webkit-background-size: $width $height;
+	background-size: $width $height;
+}
+
+// * --------------------------------
+// * tab-size
+@mixin tab-size ($value: 2) {
+	-moz-tab-size: $value; /* Firefox 4+ */
+		 tab-size: $value;
+}
+
+// * --------------------------------
+// * transform
+@mixin trnasform ($args) {
+	-webkit-transform: $args; /* Chrome, Opera 15+, Safari 3.1+ */
+		-ms-transform: $args; /* IE 9 */
+			transform: $args; /* Firefox 16+, IE 10+, Opera */
+}
+
+@mixin rotate ($degree: 0deg) {
+	-webkit-transform: rotate($degree);
+		-ms-transform: rotate($degree);
+			transform: rotate($degree);
+}
+
+@mixin scale ($x: 1, $y: 1) {
+	-webkit-transform: scale($x, $y);
+		-ms-transform: scale($x, $y);
+			transform: scale($x, $y);
 }
