@@ -8,7 +8,7 @@
 // * --------------------------------
 // * 사용
 
-#page {
+body {
 
 	a {
 		@extend %reset-a-link;
@@ -22,9 +22,14 @@
 		@extend %reset-table;
 	}
 
-	a.hide-text {
-		@extend %a11y-hidden;
-		@extend %focusable;
+	a {
+		&.readable-content {
+			@extend %a11y-hidden;
+		}
+		&.readable-focus-content {
+			@extend %a11y-hidden;
+			@extend %focusable;
+		}
 	}
 
 }

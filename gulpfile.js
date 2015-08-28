@@ -103,8 +103,10 @@ gulp.task('jade', function() {
 // 변경 업무: [node-sass] scss → CSS
 gulp.task('sass', function() {
 	return gulp.src('src/sass/**/*.scss')
+		.pipe( sourcemaps.init() )
 		.pipe( sass( config.sass ).on('error', sass.logError) )
 		.pipe( mq() )
+		.pipe( sourcemaps.write('./maps') )
 		.pipe( gulp.dest('dist/css') )
 		.pipe( reload({stream: true}) );
 });

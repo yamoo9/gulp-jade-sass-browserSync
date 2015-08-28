@@ -1,18 +1,18 @@
-#page a img {
+body a img {
   border: none;
 }
 
-#page table {
+body table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-#page table th {
+body table th {
   text-align: left;
   font-weight: normal;
 }
 
-#page table caption,#page a.hide-text {
+body table caption,body a.readable-content,body a.readable-focus-content {
   overflow: hidden;
   position: absolute;
   clip: rect(0 0 0 0);
@@ -24,7 +24,7 @@
   border: 0;
 }
 
-#page a.hide-text:focus,#page a.hide-text:active {
+body a.readable-focus-content:focus,body a.readable-focus-content:active {
   overflow: visible;
   position: static;
   clip: auto;
@@ -33,21 +33,23 @@
   margin: 0;
 }
 
-#page a {
+body a {
   color: #1D1A1C;
   text-decoration: none;
 }
 
-#page a img {
+body a img {
   border: none;
 }
 
-#page table {
+body table {
   margin: 0;
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-#page table th {
+body table th {
   align: left;
 }
+
+/*# sourceMappingURL=maps/style.css.map */
