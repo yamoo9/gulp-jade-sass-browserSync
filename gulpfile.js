@@ -14,6 +14,7 @@ var gulp        = require('gulp'),
 	filter      = require('gulp-filter'),
 	sourcemaps  = require('gulp-sourcemaps'),
 	shell       = require('gulp-shell'),
+	mq          = require('gulp-combine-mq'),
 
 	/* Browser 서버/싱크 ------------------------- */
 	browserSync = require('browser-sync'),
@@ -103,6 +104,7 @@ gulp.task('jade', function() {
 gulp.task('sass', function() {
 	return gulp.src('src/sass/**/*.scss')
 		.pipe( sass( config.sass ).on('error', sass.logError) )
+		.pipe( mq() )
 		.pipe( gulp.dest('dist/css') )
 		.pipe( reload({stream: true}) );
 });
@@ -113,6 +115,7 @@ gulp.task('sass:ruby', function() {
 	return rubySass('src/sass/', config.ruby_sass)
 		.on('error', rubySass.logError)
 		.pipe( sourcemaps.write(config.ruby_sass_sourcemaps.dir, config.ruby_sass_sourcemaps.options) )
+		.pipe( mq() )
 		.pipe( gulp.dest('dist/css') )
 		.pipe( filter('**/*.css') )
 		.pipe( reload({stream: true}) );

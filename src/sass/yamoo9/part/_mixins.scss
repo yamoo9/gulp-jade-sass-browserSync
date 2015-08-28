@@ -51,9 +51,9 @@
 // * --------------------------------
 // * box-sizing
 @mixin box-sizing ($box: border-box) {
-	 -webkit-box-sizing: $box;
-		-moz-box-sizing: $box;
-			 box-sizing: $box;
+	-webkit-box-sizing: $box;
+	-moz-box-sizing: $box;
+	box-sizing: $box;
 }
 
 
@@ -61,7 +61,7 @@
 // * border-radius
 @mixin border-radius ($radius: 4px) {
 	-webkit-border-radius: $radius;
-			border-radius: $radius;
+	border-radius: $radius;
 	background-clip: padding-box;
 }
 
@@ -69,23 +69,23 @@
 // * box-shadow
 @mixin box_shadow($args...) {
 	-webkit-box-shadow: $args; /* Android 2.3+, iOS 4.0.2-4.2, Safari 3-4 */
-			box-shadow: $args; /* Chrome 6+, Firefox 4+, IE 9+, iOS 5+, Opera 10.50+ */
+	box-shadow: $args; /* Chrome 6+, Firefox 4+, IE 9+, iOS 5+, Opera 10.50+ */
 }
 
 // * --------------------------------
 // * transition
 @mixin transition($args...) {
 	-webkit-transition: all 0.3s ease-out;
-			transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
 }
 
 // * --------------------------------
 // * animation
 @mixin animation ($value) {
 	-webkit-animation: $value;
-	   -moz-animation: $value;
-		 -o-animation: $value;
-			animation: $value;
+	-moz-animation: $value;
+	-o-animation: $value;
+	animation: $value;
 }
 
 // * --------------------------------
@@ -99,25 +99,25 @@
 // * tab-size
 @mixin tab-size ($value: 2) {
 	-moz-tab-size: $value; /* Firefox 4+ */
-		 tab-size: $value;
+	tab-size: $value;
 }
 
 // * --------------------------------
 // * transform
 @mixin trnasform ($args) {
 	-webkit-transform: $args; /* Chrome, Opera 15+, Safari 3.1+ */
-		-ms-transform: $args; /* IE 9 */
-			transform: $args; /* Firefox 16+, IE 10+, Opera */
+	-ms-transform: $args; /* IE 9 */
+	transform: $args; /* Firefox 16+, IE 10+, Opera */
 }
 
 @mixin rotate ($degree: 0deg) {
 	-webkit-transform: rotate($degree);
-		-ms-transform: rotate($degree);
-			transform: rotate($degree);
+	-ms-transform: rotate($degree);
+	transform: rotate($degree);
 }
 
 @mixin scale ($x: 1, $y: 1) {
 	-webkit-transform: scale($x, $y);
-		-ms-transform: scale($x, $y);
-			transform: scale($x, $y);
+	-ms-transform: scale($x, $y);
+	transform: scale($x, $y);
 }

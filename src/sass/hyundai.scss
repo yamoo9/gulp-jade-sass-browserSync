@@ -7,7 +7,6 @@ $opacity: 0.3;
 @include font-face( HyundaiDep, "../font/hyundai_bold.eot", "../font/Hyundai_dep.woff" );
 @include font-face( fugue_rg, "../font/fugue_regular.eot", "../font/fugue_regular.woff" );
 
-
 @include keyframes(animationScrollTop) {
 	0%   { bottom: 150px; }
 	100% { bottom: 230px; }
@@ -19,6 +18,12 @@ $opacity: 0.3;
 	100% { @include opacity(0.3); }
 }
 
+.test {
+	@include animation(fadein 400ms ease-in infinite both);
+	@include border-radius(50%);
+	@include background-size(50%, 40%);
+	@include box-sizing;
+}
 
 
 html, body {

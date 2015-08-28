@@ -1,0 +1,96 @@
+@charset "utf-8";
+/*! style.css © yamoo9.net, 2015 */
+
+// * --------------------------------
+// * 모듈 호출
+// * Invalid UTF-8
+// * --------------------------------
+@import url("yamoo9/yamoo9");
+
+// * --------------------------------
+// * 환경 변수
+// * --------------------------------
+$bp-tablet:  800px;
+$bp-desktop: 1280px;
+$mq-propery: 'min-width';
+
+
+
+html {
+	@extend %font-smoothing;
+}
+
+// Mobile First
+body {
+	@extend %reset-body;
+	width: 100%;
+
+	// Tablet
+	@media only screen and ($mq-propery: $bp-tablet) {
+		width: 90%;
+		min-width: $bp-tablet;
+	}
+
+	// Desktop
+	@media only screen and ($mq-propery: $bp-desktop) {
+		min-width: $bp-desktop;
+		width: 100%;
+		max-width: 1480px;
+	}
+
+	// 중첩 속성
+	margin: {
+		top: 100px;
+		bottom: 80px;
+	}
+	font: {
+		family: 'Nanum Gothic', Dotum, Sans-Serif;
+		size: 14px;
+		weight: 100;
+		style: normal;
+	}
+}
+
+// 중첩 규칙
+nav,
+div[role=navigation]{
+	ul,
+	ol {
+		// 스타일 모듈 상속: 대체 선택자(%)
+		@extend %reset-list;
+	}
+}
+
+
+main {
+	.post {
+		box-sizing: border-box;
+
+		padding: {
+			left: 5%;
+			right: 5%;
+		}
+
+		// Tablet
+		@media only screen and ($mq-propery: $bp-tablet) {
+			float: left;
+			width: 50%; // 100% / 2
+			&:first-of-type {
+				padding-left: 0;
+			}
+			&:last-of-type {
+				padding-right: 0;
+			}
+		}
+
+		// Desktop
+		@media only screen and ($mq-propery: $bp-desktop) {
+			width: 25%;
+			padding: {
+				left: calc(100%/4 - 20px);
+				right: calc(100%/4 - 20px);
+			}
+		}
+
+	} // .post
+} // main

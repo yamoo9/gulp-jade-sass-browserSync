@@ -1,29 +1,23 @@
-@charset "UTF-8";
-/*! style.css © yamoo9.net, 2015 */
-html {
-  -webkit-font-smoothing: antialiased;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+.log-in-btn,.log-off-btn,.sucess-btn {
+  background: #EAE6DF;
+  color: #ad9e83;
+  display: inline-block;
+  border: 1px solid;
+  padding: 0.3em 0.8em;
+  text-align: center;
 }
 
-body {
-  margin: 0;
+.log-in-btn {
+  background: #36907E;
+  color: #d6efea;
 }
 
-nav ul,
-nav ol,
-div[role=navigation] ul,
-div[role=navigation] ol {
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-left: 0;
-  list-style: none;
+.log-off-btn {
+  color: #424242;
+  background: #8f8f8f;
 }
 
-body {
-  margin-top: 100px;
-  margin-bottom: 80px;
-  font-family: 'Nanum Gothic', Dotum, Sans-Serif;
-  font-size: 14px;
-  font-weight: 100;
-  font-style: normal;
+.sucess-btn {
+  background: #B9121B;
+  color: #f17379;
 }

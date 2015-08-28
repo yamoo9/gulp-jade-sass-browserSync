@@ -5,37 +5,50 @@ block settings
 //- 문서 헤드 영역
 include pages/_document_head
 
-	block meta_seo
-		include pages/head/_meta_seo
+	head
 
-	block meta_viewport
-		meta(name="viewport", content="width=device-width, initial-scale=1")
+		meta(http-equiv="X-UA-Compatible", content="IE=Edge")
 
-	block stylesheets
-		link(rel="stylesheet", href="css/style.css")
+		//- 문자 인코딩
+		meta(charset= encoding)
 
-	block _scripts_head
-		include pages/scripts/_scripts_head
+		//- 문서 타이틀
+		title= page_title
+
+		//- 검색엔진 최적화 SEO
+		block meta_seo
+			include pages/head/_meta_seo
+
+		//- 모바일 최적화
+		block meta_viewport
+			meta(name="viewport", content="width=device-width, initial-scale=1")
+
+		//- 메인 스타일링
+		block stylesheets
+			link(rel="stylesheet", href="css/style.css")
+
+		//- 헤드 스크립트
+		block _scripts_head
+			include pages/scripts/_scripts_head
 
 	body(
 		class=[isMain == true ? 'main-page' : ''],
 		class=body_classlist
 	)
+		#page
 
-		block gnb
-			include pages/body/_gnb
+			block header
+				include pages/body/_header
 
-		block header
-			include pages/body/_header
+			block gnb
+				include pages/body/_gnb
 
+			block main
+				include pages/body/_main
 
+			block footer
+				include pages/body/_footer
 
-
-		block main
-
-		block footer
-			include pages/body/_footer
-
-		block _scripts_footer
-			include pages/scripts/_scripts_footer
+			block _scripts_footer
+				include pages/scripts/_scripts_footer
 
