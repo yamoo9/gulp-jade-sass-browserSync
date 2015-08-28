@@ -1,4 +1,6 @@
-@import "part/reset";
-@import "part/common";
-@import "part/mixins";
-@import "part/placeholders";
+@import "common/common";
+@import "config/config";
+@import "reset/reset";
+@import "mixins/mixins";
+@import "placeholders/placeholders";
+@import "print/print";

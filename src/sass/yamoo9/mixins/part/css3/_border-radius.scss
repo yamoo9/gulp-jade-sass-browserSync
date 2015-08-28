@@ -1,0 +1,5 @@
+@mixin border-radius ($radius: 4px) {
+	-webkit-border-radius: $radius;
+	border-radius: $radius;
+	background-clip: padding-box;
+}

@@ -3,25 +3,23 @@ var gulp        = require('gulp'),
 	/* 컴파일 엔진 -------------------------------- */
 	// Node.js 템플릿 엔젠
 	// HTML 프리프로세서(컴파일러)
-	jade        = require('gulp-jade'),
+	jade         = require('gulp-jade'),
 
 	// CSS 프리프로세서
-	sass        = require('gulp-sass'),
-	rubySass    = require('gulp-ruby-sass'),
+	sass         = require('gulp-sass'),
+	rubySass     = require('gulp-ruby-sass'),
+	globImporter = require('sass-glob-importer'),
 
 	/* 유틸리티 ---------------------------------- */
-	gulpif      = require('gulp-if'),
-	filter      = require('gulp-filter'),
-	sourcemaps  = require('gulp-sourcemaps'),
-	shell       = require('gulp-shell'),
-	mq          = require('gulp-combine-mq'),
+	gulpif       = require('gulp-if'),
+	filter       = require('gulp-filter'),
+	sourcemaps   = require('gulp-sourcemaps'),
+	shell        = require('gulp-shell'),
+	mq           = require('gulp-combine-mq'),
 
 	/* Browser 서버/싱크 ------------------------- */
-	browserSync = require('browser-sync'),
-	reload      = browserSync.reload;
-
-
-
+	browserSync  = require('browser-sync'),
+	reload       = browserSync.reload;
 
 
 /**
@@ -38,7 +36,8 @@ var config = {
 	'sass_engine': process.env.sass || 'node', // 'node' or 'ruby'
 	'sass': {
 		// compact, compressed, nested, expanded
-		'outputStyle': 'expanded'
+		'outputStyle' : 'expanded',
+		'importer'    : globImporter(),
 	},
 	'ruby_sass': { // 옵션: Git Bash or Terminal ⇒ sass -h
 		'default-encoding' : 'utf-8',    // Windows 환경에서 CP949 오류 발생 시

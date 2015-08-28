@@ -1,0 +1,4 @@
+@mixin box-shadow($args...) {
+	-webkit-box-shadow: $args; /* Android 2.3+, iOS 4.0.2-4.2, Safari 3-4 */
+	box-shadow: $args; /* Chrome 6+, Firefox 4+, IE 9+, iOS 5+, Opera 10.50+ */
+}
