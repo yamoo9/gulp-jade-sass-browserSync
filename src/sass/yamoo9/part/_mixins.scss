@@ -121,3 +121,21 @@
 	-ms-transform: scale($x, $y);
 	transform: scale($x, $y);
 }
+
+// * --------------------------------
+// * 컨트라스트 컬러 믹스인
+@mixin contrastColor($color: #aeadab, $property: 'color', $amount: 30%) {
+
+	@if $property == 'color' {
+		background: $color;
+	} @else {
+		color: $color;
+	}
+
+	@if lightness($color) > 50% {
+		#{$property}: darken($color, $amount);
+	} @else {
+		#{$property}: lighten($color, $amount);
+	}
+
+}

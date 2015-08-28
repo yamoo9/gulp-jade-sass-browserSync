@@ -1,23 +1,53 @@
-.log-in-btn,.log-off-btn,.sucess-btn {
-  background: #EAE6DF;
-  color: #ad9e83;
-  display: inline-block;
-  border: 1px solid;
-  padding: 0.3em 0.8em;
-  text-align: center;
+#page a img {
+  border: none;
 }
 
-.log-in-btn {
-  background: #36907E;
-  color: #d6efea;
+#page table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-.log-off-btn {
-  color: #424242;
-  background: #8f8f8f;
+#page table th {
+  text-align: left;
+  font-weight: normal;
 }
 
-.sucess-btn {
-  background: #B9121B;
-  color: #f17379;
+#page table caption,#page a.hide-text {
+  overflow: hidden;
+  position: absolute;
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+#page a.hide-text:focus,#page a.hide-text:active {
+  overflow: visible;
+  position: static;
+  clip: auto;
+  width: auto;
+  height: auto;
+  margin: 0;
+}
+
+#page a {
+  color: #1D1A1C;
+  text-decoration: none;
+}
+
+#page a img {
+  border: none;
+}
+
+#page table {
+  margin: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+#page table th {
+  align: left;
 }

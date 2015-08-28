@@ -1,51 +1,30 @@
 // * --------------------------------
+// * yamoo9 모듈 호출
+@import "yamoo9/yamoo9";
+
+// * --------------------------------
 // * 재사용 모듈
-
-@mixin contrastColor($color: #aeadab, $property: 'color', $amount: 30%) {
-
-	@if $property == 'color' {
-		background: $color;
-	} @else {
-		color: $color;
-	}
-
-	@if lightness($color) > 50% {
-		#{$property}: darken($color, $amount);
-	} @else {
-		#{$property}: lighten($color, $amount);
-	}
-
-}
-
-
-%button {
-
-	$bg-color: #EAE6DF;
-
-	@include contrastColor($bg-color);
-	display:    inline-block;
-	border:     1px solid;
-	padding:    0.3em 0.8em;
-	text-align: center;
-}
 
 // * --------------------------------
 // * 사용
 
-.log-in-btn {
-	$bg-color: #36907E;
-	@extend %button;
-	@include contrastColor($bg-color, $amount: 50%);
-}
+#page {
 
-.log-off-btn {
-	$bg-color: #424242;
-	@extend %button;
-	@include contrastColor($bg-color, 'background');
-}
+	a {
+		@extend %reset-a-link;
+	}
 
-.sucess-btn {
-	$bg-color: #B9121B;
-	@extend %button;
-	@include contrastColor($bg-color);
+	a img {
+		@extend %reset-a-img;
+	}
+
+	table {
+		@extend %reset-table;
+	}
+
+	a.hide-text {
+		@extend %a11y-hidden;
+		@extend %focusable;
+	}
+
 }
