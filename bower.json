@@ -1,0 +1,26 @@
+{
+  "name": "gulp-jade-sass-browserSync",
+  "version": "0.0.1",
+  "homepage": "https://github.com/yamoo9/gulp-jade-sass-browserSync",
+  "authors": [
+    "Jee Hoon <yamoo9@naver.com>"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "Sass",
+    "Bourbon"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bourbon": "~4.2.4"
+  }
+}

@@ -1,6 +1,31 @@
 // * --------------------------------
-// * yamoo9 모듈 호출
+// * Bourbon - prefix 환경 변수
+// * --------------------------------
+
+$prefix-for-webkit:    true;
+$prefix-for-mozilla:   true;
+$prefix-for-microsoft: true;
+$prefix-for-opera:     true;
+$prefix-for-spec:      true;
+
+// * --------------------------------
+// * Sass 라이브러리 호출
+@import "bourbon/bourbon";
 @import "yamoo9/yamoo9";
+
+#page {
+	@include position(10px null null 10px);
+	@include margin(10px 0px null 10px);
+	@include transition(all 0.4s ease-in 0.2s);
+	@include animation(fade-in 0.8s ease-in-out infinite alternate);
+
+	.box {
+		margin: unpack(4em 2em 3em);
+		@include border-right-radius(4px);
+		width: rem(1000px);
+	}
+}
+
 
 // * --------------------------------
 // * 사용
