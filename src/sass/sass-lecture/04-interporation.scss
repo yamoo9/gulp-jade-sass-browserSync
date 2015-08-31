@@ -1,0 +1,28 @@
+@import "../bourbon/bourbon";
+
+@import "00_config";
+
+// @debug $google-webfont;
+
+@import url("https://fonts.googleapis.com/css?family=#{$google-webfont}");
+
+@mixin assignGoogleWebfont (
+	$family,
+	$selector: body,
+	$size: 1em
+) {
+    #{$selector} {
+    	font: {
+    		family: $family;
+    		size: $size;
+    	}
+    	@content;
+    }
+}
+
+@include assignGoogleWebfont('Kranky', '#app [class*="post-"]', 1.2rem);
+@include assignGoogleWebfont('Kranky', $size: 1.1rem) {
+	> footer {
+		font-size: 1rem;
+	}
+};

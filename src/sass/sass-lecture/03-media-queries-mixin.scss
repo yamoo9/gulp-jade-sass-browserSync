@@ -10,9 +10,19 @@ body {
 }
 
 #page {
-	// Mobile First
 	$store-width: 94%;
 	$padding-gap: (100% - $store-width)/2;
+
+	* {
+		box-sizing: border-box;
+		margin: {
+			top: 0;
+			bottom: 0;
+		}
+	}
+
+	// ------------------------------------------------------------
+	// Mobile First
 	max-width: $store-width;
 	min: {
 		width: $mobile;
@@ -23,18 +33,10 @@ body {
 		right: $padding-gap;
 	}
 
-	* {
-		box-sizing: border-box;
-		margin: {
-			top: 0;
-			bottom: 0;
-		}
-	}
-
 	[class*="post-"] {
 		float: left;
 		width: 50%;
-		min-height: rem(100px);
+		min-height: rem(150px);
 		margin-bottom: $padding-gap;
 		padding: $padding-gap;
 		font-weight: 200;
@@ -59,32 +61,35 @@ body {
 	}
 
 
+	// ------------------------------------------------------------
 	// Tablet Design
 	@include mq('tablet') {
-		$store-width: 90%;
-		min: {
-			width: $tablet;
-		}
+		// $store-width: 70%;
+		// padding-top: 20px;
+		// min: {
+		// 	width: $tablet - 20px;
+		// }
 
-		[class*='post-'] {
-
-		}
+		// [class*='post-'] {
+		// 	width: (99%/3);
+		// 	min-height: rem(200px);
+		// }
 
 	};
 
+	// ------------------------------------------------------------
 	// Desktop Design
-	// Tablet Design
 	@include mq('desktop') {
-		$store-width: $desktop + 100px;
-		$padding-gap: abs($desktop - $store-width)/2;
-		max-width: $store-width;
-		min: {
-			width: $desktop;
-		}
+		// $store-width: $desktop + 100px;
+		// $padding-gap: abs($desktop - $store-width)/2;
+		// max-width: $store-width;
+		// min: {
+		// 	width: $desktop;
+		// }
 
-		[class*='post-'] {
-
-		}
+		// [class*='post-'] {
+		// 	width: $desktop/4;
+		// }
 	};
 
 }

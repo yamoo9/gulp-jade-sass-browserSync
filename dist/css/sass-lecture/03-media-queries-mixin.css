@@ -19,7 +19,7 @@ body {
 #page [class*="post-"] {
   float: left;
   width: 50%;
-  min-height: 6.25rem;
+  min-height: 9.375rem;
   margin-bottom: 3%;
   padding: 3%;
   font-weight: 200;
@@ -41,19 +41,6 @@ body {
 #page [class*="post-"] h3 {
   font-size: 2.625rem;
   font-weight: 100;
-}
-
-@media screen and (min-width: 800px) {
-  #page {
-    min-width: 800px;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  #page {
-    max-width: 1300px;
-    min-width: 1200px;
-  }
 }
 
 /*# sourceMappingURL=../maps/sass-lecture/03-media-queries-mixin.css.map */

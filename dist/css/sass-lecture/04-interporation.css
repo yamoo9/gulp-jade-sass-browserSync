@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css?family=Kranky");
+
+#app [class*="post-"] {
+  font-family: "Kranky";
+  font-size: 1.2rem;
+}
+
+body {
+  font-family: "Kranky";
+  font-size: 1.1rem;
+}
+
+body > footer {
+  font-size: 1rem;
+}
+
+/*# sourceMappingURL=../maps/sass-lecture/04-interporation.css.map */
