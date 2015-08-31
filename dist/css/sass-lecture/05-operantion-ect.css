@@ -17,4 +17,87 @@ body {
   background: hsla(194.03226deg, 93.93939%, 25.88235%, 0.45);
 }
 
+::-moz-selection {
+  background-color: #ffbb52;
+  color: #6c4100;
+}
+
+::selection {
+  background-color: #ffbb52;
+  color: #6c4100;
+}
+
+aside .banner ::-moz-selection {
+  background: #B64926;
+  color: #cf8770;
+}
+
+aside .banner ::selection {
+  background: #B64926;
+  color: #cf8770;
+}
+
+.red-box,.green-box,.blue-box {
+  display: inline-block;
+}
+
+.red-box {
+  height: 48px;
+  width: 120px;
+  text-shadow: 0px -1px #b41019;
+  border: 1px solid #56080c;
+  box-shadow: inset 0px 0px 3px #f8b1b5;
+  border-radius: 50%;
+  background: rgba(238, 60, 70, 0.8);
+}
+
+.green-box {
+  height: 65px;
+  width: 220px;
+  text-shadow: 0px -1px #0fb191;
+  border: 1px solid #075344;
+  box-shadow: inset 0px 0px 3px #adf8e9;
+  background: rgba(56, 238, 202, 0.8);
+}
+
+.blue-box {
+  height: 100px;
+  width: 420px;
+  text-shadow: 0px -1px #103da3;
+  border: 1px solid #071a46;
+  box-shadow: inset 0px 0px 3px #a3bcf6;
+  border-radius: 15%;
+  background: rgba(47, 104, 234, 0.8);
+}
+
+@-webkit-keyframes fade-in-color {
+  from {
+    background: rgba(67, 68, 51, 0.1);
+  }
+
+  to {
+    background: #434433;
+  }
+}
+
+@-moz-keyframes fade-in-color {
+  from {
+    background: rgba(67, 68, 51, 0.1);
+  }
+
+  to {
+    background: #434433;
+  }
+}
+
+@keyframes fade-in-color {
+  from {
+    background: rgba(67, 68, 51, 0.1);
+  }
+
+  to {
+    background: #434433;
+  }
+}
+
 /*# sourceMappingURL=../maps/sass-lecture/05-operantion-ect.css.map */

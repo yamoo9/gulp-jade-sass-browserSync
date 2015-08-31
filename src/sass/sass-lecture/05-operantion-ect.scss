@@ -36,7 +36,7 @@
 	}
 }
 
-@function hex2hsla($hex, $alpha: 1) {
+@function _hsla($hex, $alpha: 1) {
 	@if type-of($hex) != 'color' {
 		@error "전달인자를 제대로 확인하세요 :-(";
 	}
@@ -47,6 +47,77 @@
 }
 
 body {
-	color: hex2hsla(#333, 0.7);
-	background: hex2hsla(#046380, 0.45);
+	color: _hsla(#333, 0.7);
+	background: _hsla(#046380, 0.45);
 }
+
+@import "../bourbon/bourbon";
+
+@include selection {
+	background-color: #ffbb52;
+	color: darken(#ffbb52, 45%);
+}
+
+aside .banner {
+	@include selection {
+		background: #B64926;
+		color: tint(#B64926, 34%);
+	};
+}
+
+
+$box-base-color: #B4B4B4 !default;
+
+%box {
+	display: inline-block;
+}
+
+@mixin box-appearance ($box-base-color, $rounded: null) {
+    text-shadow: 0px -1px darken($box-base-color, 20%);
+    border: 1px solid darken($box-base-color, 40%);
+    box-shadow: inset 0px 0px 3px lighten($box-base-color, 25%);
+    border-radius: $rounded;
+}
+
+
+.red-box {
+	$box-base-color: #EE3C46;
+	@extend %box;
+	@include size(120px 48px);
+	@include box-appearance($box-base-color, 50%);
+	background: rgba($box-base-color, 0.8);
+}
+
+.green-box {
+	$box-base-color: #38EECA;
+	@extend %box;
+	@include size(220px 65px);
+	@include box-appearance($box-base-color);
+	background: rgba( $box-base-color , 0.8);
+}
+
+.blue-box {
+	$box-base-color: #2F68EA;
+	@extend %box;
+	@include size(420px 100px);
+	@include box-appearance($box-base-color, 15%);
+	background: rgba( $box-base-color , 0.8);
+}
+
+
+@include keyframes(fade-in-color) {
+	from {
+		background: fade-out(#434433, 0.9);
+	}
+	to {
+		background: fade-in(#434433, 1);
+	}
+}
+
+
+@function unless($condition, $if-false, $if-true) {
+	@return if($condition, $if-true, $if-false);
+}
+
+// if(조건, 참, 거짓)
+// unlesss(조건, 거짓, 참)
