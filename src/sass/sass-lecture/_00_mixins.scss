@@ -1,0 +1,19 @@
+@mixin mq ($rwd) {
+
+    @if $rwd == 'mobile' {
+		@media #{$media-type} and ($mq-prop: $mobile) {
+			@content;
+		}
+    }
+    @if $rwd == 'tablet' {
+		@media #{$media-type} and ($mq-prop: $tablet) {
+			@content;
+		}
+    }
+    @if $rwd == 'desktop' {
+		@media #{$media-type} and ($mq-prop: $desktop) {
+			@content;
+		}
+    }
+
+}

@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+}
+
+#page {
+  max-width: 94%;
+  min-width: 480px;
+  min-height: 100vh;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+#page * {
+  box-sizing: border-box;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#page [class*="post-"] {
+  float: left;
+  width: 50%;
+  min-height: 6.25rem;
+  margin-bottom: 3%;
+  padding: 3%;
+  font-weight: 200;
+  text-align: center;
+}
+
+#page [class*="post-"]:nth-child(3n) {
+  background: #FC414B;
+}
+
+#page [class*="post-"]:nth-child(3n + 1) {
+  background: #F0FF33;
+}
+
+#page [class*="post-"]:nth-child(3n + 2) {
+  background: #34C0FF;
+}
+
+#page [class*="post-"] h3 {
+  font-size: 2.625rem;
+  font-weight: 100;
+}
+
+@media screen and (min-width: 800px) {
+  #page {
+    min-width: 800px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #page {
+    max-width: 1300px;
+    min-width: 1200px;
+  }
+}
+
+/*# sourceMappingURL=../maps/sass-lecture/03-media-queries-mixin.css.map */

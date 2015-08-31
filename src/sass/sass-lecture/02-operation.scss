@@ -1,0 +1,91 @@
+@import "../bourbon/bourbon";
+
+// * ------------------------------font-size: ;--
+// * Sass 연산font-size: ;
+// * 사칙연산 (font-size: ; +, -, *, /, % )font-size: ;
+// * 비교연산 (font-size: ; ==, !=, >, >=, <, <= font-size: ;)
+// * --------font-size: ;----------------------font-size: ;--
+$base-font-size: 10px;
+$global-padding: 9px;
+
+// @debug $base-font-size;
+// @debug $global-padding;
+
+$global-columns: 100px - $global-padding * 2;
+// $page-width: 1320px;
+$page-max-width: ($global-columns + ($global-padding * 2)) * 16;
+
+// @if type-of($page-width) == 'string' {
+// 	@debug '문자 데이터 형입니다.';
+// } @else {
+// 	@debug '숫자 데이터 형입니다.';
+// }
+
+// CSS 단위(px, em, pt, rem, %, ...)는 숫자입니다.
+// @if $page-width > 960 {
+// 	@debug '미디어 타입은 데스크탑입니다.';
+// } @else {
+// 	@debug '미디어 타입은 태블릿 이하입니다.';
+// }
+
+// 스타일 클래스 모듈 (해석되지 않는, Class)
+%font-weight-normal { font-weight: normal; }
+
+#page {
+	h1 { font-size: $base-font-size * 2.4; }
+	h2 {
+		font-size: $base-font-size * 2.2;
+		@extend %font-weight-normal;
+	}
+	h3 {
+		font-size: $base-font-size * 2.0;
+		@extend %font-weight-normal;
+	}
+	h4 {
+		font-size: $base-font-size * 1.8;
+		@extend %font-weight-normal;
+	}
+	h5 { font-size: $base-font-size * 1.6; }
+	h6 { font-size: $base-font-size * 1.4; }
+	p { font-size: $base-font-size * 1.4; }
+}
+
+.container {
+	max-width: $page-max-width;
+
+	* {
+		box-sizing: border-box;
+	}
+
+	table {
+		margin: {
+			@if ($global-padding > 10) {
+				top: $global-padding/2;
+				bottom: $global-padding/2;
+			} @else {
+				top: 0;
+				bottom: 0;
+			}
+		}
+	} // table
+} // .container
+
+
+// * --------------------------------
+// * font 속기형 사용 시, 주의 점.
+// * --------------------------------
+// 단위 제거 함수
+@function deUnit($value) {
+	// 함수 유효성 검사
+	@if type-of($value) == 'null' {
+		@warn '전달인자 값이 전달되지 않았습니다.';
+	}
+	// 함수 연산 처리 결과 반환
+	@return $value / ($value * 0 + 1);
+}
+
+#page .article {
+	$font-size: deUnit($base-font-size)*1.7;
+	@debug $font-size;
+	font: $font-size+px/1.8 Verdana;
+}

@@ -49,8 +49,9 @@ var config = {
 		'dir': 'maps',
 		'options': {
 			'includeContent' : false,
-			'sourceRoot'     : 'source'
-		}
+			'sourceRoot'     : 'source',
+			'require'        : ['sass-globbing'],
+		},
 	},
 	// Browser-sync
 	'browserSync': { // 옵션: http://www.browsersync.io/docs/options/
