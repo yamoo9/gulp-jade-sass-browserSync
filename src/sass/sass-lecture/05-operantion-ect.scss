@@ -1,0 +1,52 @@
+// * --------------------------------
+// * 연산(Operation)
+
+@if type-of('80temp') != 'number' {
+	@debug true;
+} @else {
+	@debug false;
+}
+
+// * --------------------------------
+// * Sass 리스트 함수
+// 		length($list)
+// 		nth($list, $index)
+// 		join($list1, $list2[, $seperator: 'comma', 'auto', 'space'])
+// 		append($list, $value, [, $seperator: 'comma', 'auto', 'space'])
+// 		index($list, $value)
+// * --------------------------------
+
+@mixin fallback-color ($color, $alpha: 1, $prop: 'background') {
+	@if type-of($color) != 'color' {
+		@error "전달된 인자는 컬러 유형의 값이 아닙니다.";
+	}
+	#{$prop}: $color;
+	#{$prop}: if($alpha != 1, rgba($color, $alpha), null);
+}
+
+#app {
+	header {
+		@include fallback-color(#3A0099 + #111, 0.9);
+	}
+	main {
+		@include fallback-color(#3A0099 - #212300);
+	}
+	footer {
+		@include fallback-color(#3A0099, 0.5, 'color');
+	}
+}
+
+@function hex2hsla($hex, $alpha: 1) {
+	@if type-of($hex) != 'color' {
+		@error "전달인자를 제대로 확인하세요 :-(";
+	}
+	$h: hue($hex);
+	$s: saturation($hex);
+	$l: lightness($hex);
+	@return unquote("hsla(#{$h}, #{$s}, #{$l}, #{$alpha})");
+}
+
+body {
+	color: hex2hsla(#333, 0.7);
+	background: hex2hsla(#046380, 0.45);
+}

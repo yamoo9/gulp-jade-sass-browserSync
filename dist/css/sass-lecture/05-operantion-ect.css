@@ -1,0 +1,20 @@
+#app header {
+  background: #4b11aa;
+  background: rgba(75, 17, 170, 0.9);
+}
+
+#app main {
+  background: #190099;
+}
+
+#app footer {
+  color: #3A0099;
+  color: rgba(58, 0, 153, 0.5);
+}
+
+body {
+  color: hsla(0deg, 0%, 20%, 0.7);
+  background: hsla(194.03226deg, 93.93939%, 25.88235%, 0.45);
+}
+
+/*# sourceMappingURL=../maps/sass-lecture/05-operantion-ect.css.map */
