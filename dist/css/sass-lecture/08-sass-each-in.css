@@ -1,0 +1,93 @@
+.icon-arrow-top {
+  background: url("../images/icons/arrow-top.png");
+  width: 22px;
+  height: 22px;
+}
+
+.icon-arrow-right {
+  background: url("../images/icons/arrow-right.png");
+  width: 22px;
+  height: 22px;
+}
+
+.icon-arrow-bottom {
+  background: url("../images/icons/arrow-bottom.png");
+  width: 22px;
+  height: 22px;
+}
+
+.icon-arrow-left {
+  background: url("../images/icons/arrow-left.png");
+  width: 22px;
+  height: 22px;
+}
+
+.icon-bag {
+  background: url("../images/icons/bag.png");
+  width: 124px;
+  height: 78px;
+}
+
+.icon-ball {
+  background: url("../images/icons/ball.png");
+  width: 52px;
+  height: 52px;
+}
+
+.song-btn {
+  background: url("../images/icons/song-btn.jpg");
+}
+
+.work-btn {
+  background: url("../images/icons/work-btn.jpg");
+}
+
+.wark-btn {
+  background: url("../images/icons/wark-btn.jpg");
+}
+
+.do-btn {
+  background: url("../images/icons/do-btn.jpg");
+}
+
+.move-btn {
+  background: url("../images/icons/move-btn.jpg");
+}
+
+.fly-btn {
+  background: url("../images/icons/fly-btn.jpg");
+}
+
+.play-btn {
+  background: url("../images/buttons/play-btn.png");
+}
+
+.pause-btn {
+  background: url("../images/buttons/pause-btn.png");
+}
+
+.stop-btn {
+  background: url("../images/buttons/stop-btn.png");
+}
+
+.next-btn {
+  background: url("../images/buttons/next-btn.png");
+}
+
+.prev-btn {
+  background: url("../images/buttons/prev-btn.png");
+}
+
+.forward-btn {
+  background: url("../images/buttons/forward-btn.png");
+}
+
+.backword-btn {
+  background: url("../images/buttons/backword-btn.png");
+}
+
+.mute-btn {
+  background: url("../images/buttons/mute-btn.png");
+}
+
+/*# sourceMappingURL=../maps/sass-lecture/08-sass-each-in.css.map */

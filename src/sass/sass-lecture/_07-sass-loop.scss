@@ -1,0 +1,138 @@
+// * --------------------------------
+// * Sass 반복(Loop) 구문
+//
+// * 960.gs 그리드 시스템 모듈
+//
+// container
+// grid_[1, 2, 3, ..., n]
+// push_[1, 2, 3, ..., n]
+// pull_[1, 2, 3, ..., n]
+// prefix_[1, 2, 3, ..., n]
+// sufix_[1, 2, 3, ..., n]
+// alpha, first
+// omega, last
+// clearfix, clear
+//
+// * 설계 패턴(구현 공식)
+// 페이지 폭($page-width)
+// 컬럼 총 개수($total-columns)
+// 컬럼 사이 간격: 거터($gutter)
+//
+// 컬럼 한 개의 폭을 구하는 공식: (960 - ( (10 * 2) * 12 )) / 12
+// ($page-width - ( ($gutter * 2) * $total-columns ) ) / $total-columns
+// * --------------------------------
+
+
+// * --------------------------------
+// * 그리드 시스템 컬럼 계산 함수
+@function calc-columnWidth() {
+	@return ($page-width - ( ($gutter * 2) * $total-columns ) ) / $total-columns;
+}
+
+// * --------------------------------
+// * 그리드 시스템 제너레이터 환경변수
+$page-width: 960px !default; // 페이지 폭
+$total-columns: 12 !default; // 컬럼 총 개수
+$gutter: 10px !default;      // 컬럼 사이 간격: 거터
+$column-width: calc-columnWidth();
+$grid-layout: center !default; // center, right
+$support-ie-6-7: false !default;
+// @debug $column-width;
+
+// $grid-layout: right;
+
+// * ------------------------------------
+// * Alpha(First), Omega(Last), Clearfix
+// * ------------------------------------
+.alpha, .first {
+	margin-left: 0;
+}
+
+.omega, .last {
+	margin-right: 0;
+}
+
+.clearfix {
+	&::after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+	@if $support-ie-6-7 {
+		.lt-ie8 & { zoom: 1; }
+	}
+}
+
+// * --------------------------------
+// * 그리드 시스템 Container 모듈
+// * --------------------------------
+.container {
+	width: $page-width;
+	@if $grid-layout == center {
+		margin: 0 auto;
+	}
+	@if $grid-layout == right {
+		margin-left: auto;
+	}
+
+	// Clearfix
+	@extend .clearfix;
+}
+
+
+// * --------------------------------
+// * 그리드 시스템 Column 모듈
+// * --------------------------------
+%grid-base {
+	float: left;
+	@if $support-ie-6-7 == true {
+		display: inline;
+	}
+	margin: {
+		left: $gutter;
+		right: $gutter;
+	}
+}
+
+// * --------------------------------
+// * 그리드 시스템 Push & Pull 모듈
+// * --------------------------------
+%push-pull-base {
+	position: relative;
+}
+
+// * --------------------------------
+// * 그리드 시스템 생성 구문
+// * --------------------------------
+$i: 1;
+@while $i <= $total-columns {
+	.grid_#{$i} {
+		@extend %grid-base;
+		// 컬럼 폭 x 컬럼 개수 + ( (거터 폭 x 2) x (컬럼 개수 - 1) )
+		width: $column-width * $i + ( ($gutter * 2) * ($i - 1) );
+	}
+
+	.push_#{$i} {
+		@extend %push-pull-base;
+		// 컬럼 폭 x 컬럼 개수 + ( (거터 폭 x 2) x 컬럼 개수 )
+		left: $column-width * $i + ( ($gutter * 2) * $i );
+	}
+
+	.pull_#{$i} {
+		@extend %push-pull-base;
+		// 컬럼 폭 x 컬럼 개수 + ( (거터 폭 x 2) x 컬럼 개수 )
+		left: -1 * ($column-width * $i + ( ($gutter * 2) * $i ));
+	}
+
+	.prefix_#{$i} {
+		// 컬럼 폭 x 컬럼 개수 + ( (거터 폭 x 2) x 컬럼 개수 )
+		padding-left: $column-width * $i + ( ($gutter * 2) * $i );
+	}
+
+	.sufix_#{$i} {
+		// 컬럼 폭 x 컬럼 개수 + ( (거터 폭 x 2) x 컬럼 개수 )
+		padding-right: $column-width * $i + ( ($gutter * 2) * $i );
+	}
+
+	$i: $i + 1;
+}

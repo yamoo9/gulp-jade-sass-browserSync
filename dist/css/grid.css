@@ -1,4 +1,13 @@
-@import url("http://fonts.googleapis.com/css?family=Noto+Sans");
+.grid_1,.grid_2,.grid_3,.grid_4,.grid_5,.grid_6,.grid_7,.grid_8,.grid_9,.grid_10,.grid_11,.grid_12 {
+  float: left;
+  display: inline;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.push_1,.pull_1,.push_2,.pull_2,.push_3,.pull_3,.push_4,.pull_4,.push_5,.pull_5,.push_6,.pull_6,.push_7,.pull_7,.push_8,.pull_8,.push_9,.pull_9,.push_10,.pull_10,.push_11,.pull_11,.push_12,.pull_12 {
+  position: relative;
+}
 
 .alpha,.first {
   margin-left: 0;
@@ -14,19 +23,13 @@
   clear: both;
 }
 
+.lt-ie8 .clearfix,.lt-ie8 .container {
+  zoom: 1;
+}
+
 .container {
   width: 960px;
   margin: 0 auto;
-}
-
-.grid_1,.grid_2,.grid_3,.grid_4,.grid_5,.grid_6,.grid_7,.grid_8,.grid_9,.grid_10,.grid_11,.grid_12 {
-  float: left;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.push_1,.pull_1,.push_2,.pull_2,.push_3,.pull_3,.push_4,.pull_4,.push_5,.pull_5,.push_6,.pull_6,.push_7,.pull_7,.push_8,.pull_8,.push_9,.pull_9,.push_10,.pull_10,.push_11,.pull_11,.push_12,.pull_12 {
-  position: relative;
 }
 
 .grid_1 {
@@ -269,4 +272,4 @@
   padding-right: 960px;
 }
 
-/*# sourceMappingURL=maps/style.css.map */
+/*# sourceMappingURL=maps/grid.css.map */

@@ -1,0 +1,31 @@
+// * --------------------------------
+// * Sass 조건(Condition) 구문
+// * --------------------------------
+$date: '2015.09.01';
+
+$icons: (
+	'arrow-top'    : 'images/arrow-top.png',
+	'arrow-right'  : 'images/arrow-right.png',
+	'arrow-bottom' : 'images/arrow-bottom.png',
+	'arrow-left'   : 'images/arrow-left.png'
+);
+
+// @if type-of($icons) == 'map' {
+// 	@debug '$icons는 맵입니다.';
+// }
+
+// @if type-of($icons) != 'map' {
+// 	@debug '$icons 변수는 맵입니다.';
+// } @else {
+// 	@debug '$icons 변수는 맵이 아닙니다.';
+// }
+
+$date-type: type-of($date);
+
+// @if $date-type == 'map' {
+// 	@debug '$date 변수는 맵입니다.';
+// } @else if $date-type == 'list' {
+// 	@debug '$date 변수는 리스트입니다.';
+// } @else {
+// 	@debug '$date 변수는 맵도 리스트도 아닌, #{$date-type} 데이터 형입니다.';
+// }

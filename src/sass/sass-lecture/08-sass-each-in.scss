@@ -1,0 +1,62 @@
+// * --------------------------------
+// * @each ~ in [list, map]
+// * --------------------------------
+$sans-fonts: 'Nanum Gothic', verdana, arial, helvetica, Dotum;
+$buttons: play pause stop next prev forward backword mute;
+
+$icons-map: (
+	'arrow-top'    : 22px 22px,
+	'arrow-right'  : 22px 22px,
+	'arrow-bottom' : 22px 22px,
+	'arrow-left'   : 22px 22px,
+	'bag'          : 124px 78px,
+	'ball'         : 52px 52px
+);
+
+@mixin makeIcons (
+	$map,
+	$image-path: '../images/icons',
+	$extension: 'png'
+) {
+	@each $icon, $dimension in $map {
+
+		// $icon: nth($item, 1);
+		// $value: nth($item, 2);
+		$width: nth($dimension, 1);
+		$height: nth($dimension, 2);
+		.icon-#{$icon} {
+			background: url('#{$image-path}/#{$icon}.#{$extension}');
+			width: $width;
+			height: $height;
+		}
+	}
+}
+
+@include makeIcons( $icons-map );
+
+
+
+@mixin makeButtons (
+	$buttons,
+	$image-path: '../images/buttons',
+	$suffix: '-btn',
+	$extension: 'png'
+) {
+	@if type-of($buttons) != 'list' {
+		@error "$buttons 인자는 리스트여야만 합니다.";
+	}
+	@each $button in $buttons {
+		// @debug $item;
+		.#{$button}-btn {
+			background: url('#{$image-path}/#{$button}#{$suffix}.#{$extension}');
+		}
+	}
+}
+
+
+@include makeButtons(
+	(song, work, wark, do, move, fly),
+	'../images/icons',
+	$extension: 'jpg'
+);
+@include makeButtons( $buttons );

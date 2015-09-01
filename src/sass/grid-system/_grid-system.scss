@@ -1,0 +1,138 @@
+// * --------------------------------
+// * 그리드 시스템 제너레이터 환경변수
+$module: '.';
+$page-width: 960px !default; // 페이지 폭
+$total-columns: 12 !default; // 컬럼 총 개수
+$gutter: 10px !default;      // 컬럼 사이 간격: 거터
+$column-width: ($page-width - ( ($gutter * 2) * $total-columns ) ) / $total-columns;
+
+$grid-layout: center !default; // center, right
+$support-ie-6-7: false !default;
+
+// * ------------------------------------------
+// * Alpha(First), Omega(Last), Clearfix 모듈
+// * ------------------------------------------
+#{$module}alpha, #{$module}first {
+	margin-left: 0;
+}
+
+#{$module}omega, #{$module}last {
+	margin-right: 0;
+}
+
+#{$module}clearfix {
+	&::after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+	@if $support-ie-6-7 {
+		#{$module}lt-ie8 & { zoom: 1; }
+	}
+}
+
+// * --------------------------------
+// * 그리드 시스템 Container 모듈
+// * --------------------------------
+#{$module}container {
+	width: $page-width;
+	@if $grid-layout == center {
+		margin: 0 auto;
+	}
+	@if $grid-layout == right {
+		margin-left: auto;
+	}
+	// Clearfix 확장(상속)
+	@extend #{$module}clearfix;
+}
+
+
+// * --------------------------------
+// * 그리드 시스템 Column 모듈
+// * --------------------------------
+%grid-base {
+	float: left;
+	@if $support-ie-6-7 == true {
+		display: inline;
+	}
+	margin: {
+		left: $gutter;
+		right: $gutter;
+	}
+}
+
+// * --------------------------------
+// * 그리드 시스템 Push & Pull 모듈
+// * --------------------------------
+%push-pull-base {
+	position: relative;
+}
+
+// * --------------------------------
+// * 그리드 시스템 생성 구문
+// * --------------------------------
+// $i: 1;
+
+// @while $i <= $total-columns {
+// 	#{$module}grid_#{$i} {
+// 		@extend %grid-base;
+// 		// 컬럼 폭 x 컬럼 개수 + ( (거터 폭 x 2) x (컬럼 개수 - 1) )
+// 		width: $column-width * $i + ( ($gutter * 2) * ($i - 1) );
+// 	}
+
+// 	#{$module}push_#{$i} {
+// 		@extend %push-pull-base;
+// 		// 컬럼 폭 x 컬럼 개수 + ( (거터 폭 x 2) x 컬럼 개수 )
+// 		left: $column-width * $i + ( ($gutter * 2) * $i );
+// 	}
+
+// 	#{$module}pull_#{$i} {
+// 		@extend %push-pull-base;
+// 		left: -1 * ($column-width * $i + ( ($gutter * 2) * $i ));
+// 	}
+
+// 	#{$module}prefix_#{$i} {
+// 		padding-left: $column-width * $i + ( ($gutter * 2) * $i );
+// 	}
+
+// 	#{$module}sufix_#{$i} {
+// 		padding-right: $column-width * $i + ( ($gutter * 2) * $i );
+// 	}
+
+// 	$i: $i + 1;
+// }
+
+// * --------------------------------
+// * @for $i from 1 [to,through] ~
+// * --------------------------------
+
+// @for $i from 1 through 10 {
+// 	@debug $i;
+// }
+
+@for $i from 1 through $total-columns {
+	#{$module}grid_#{$i} {
+		@extend %grid-base;
+		// 컬럼 폭 x 컬럼 개수 + ( (거터 폭 x 2) x (컬럼 개수 - 1) )
+		width: $column-width * $i + ( ($gutter * 2) * ($i - 1) );
+	}
+
+	#{$module}push_#{$i} {
+		@extend %push-pull-base;
+		// 컬럼 폭 x 컬럼 개수 + ( (거터 폭 x 2) x 컬럼 개수 )
+		left: $column-width * $i + ( ($gutter * 2) * $i );
+	}
+
+	#{$module}pull_#{$i} {
+		@extend %push-pull-base;
+		left: -1 * ($column-width * $i + ( ($gutter * 2) * $i ));
+	}
+
+	#{$module}prefix_#{$i} {
+		padding-left: $column-width * $i + ( ($gutter * 2) * $i );
+	}
+
+	#{$module}sufix_#{$i} {
+		padding-right: $column-width * $i + ( ($gutter * 2) * $i );
+	}
+}

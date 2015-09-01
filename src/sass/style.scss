@@ -2,56 +2,94 @@
 // * Bourbon - prefix 환경 변수
 // * --------------------------------
 
-$prefix-for-webkit:    true;
-$prefix-for-mozilla:   true;
-$prefix-for-microsoft: true;
-$prefix-for-opera:     true;
-$prefix-for-spec:      true;
+// $prefix-for-webkit:    true;
+// $prefix-for-mozilla:   true;
+// $prefix-for-microsoft: true;
+// $prefix-for-opera:     true;
+// $prefix-for-spec:      true;
 
 // * --------------------------------
 // * Sass 라이브러리 호출
 @import "bourbon/bourbon";
-@import "yamoo9/yamoo9";
+// @import "yamoo9/yamoo9";
+@import "grid-system/grid-system";
 
-#page {
-	@include position(10px null null 10px);
-	@include margin(10px 0px null 10px);
-	@include transition(all 0.4s ease-in 0.2s);
-	@include animation(fade-in 0.8s ease-in-out infinite alternate);
 
-	.box {
-		margin: unpack(4em 2em 3em);
-		@include border-right-radius(4px);
-		width: rem(1000px);
-	}
+@mixin baseline ($baseline, $color: #3A0099) {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200vh;
+    background-image: linear-gradient(transparent 95%, rgba($color, 0.8));
+    background-size: $baseline $baseline;
 }
 
 
 // * --------------------------------
-// * 사용
+// * KAKAO BANK WALLET
+// * --------------------------------
 
-body {
+$base-font-size: 14px;
+$line-height-radio: 1.5;
+$baseline: $base-font-size * $line-height-radio; // 21px
+$noto-webfont: "Noto+Sans";
+$note: 'Noto Sans';
 
-	a {
-		@extend %reset-a-link;
-	}
+@import url("http://fonts.googleapis.com/css?family=#{$noto-webfont}");
 
-	a img {
-		@extend %reset-a-img;
-	}
+// body {
+// 	@extend %reset-body;
+// 	// font: strip-units($base-font-size)+px/$line-height-radio $note;
+// 	background: #fff;
 
-	table {
-		@extend %reset-table;
-	}
+// 	&::after {
+// 		content: '';
+// 		@include baseline($baseline, red);
+// 	}
+// }
 
-	a {
-		&.readable-content {
-			@extend %a11y-hidden;
-		}
-		&.readable-focus-content {
-			@extend %a11y-hidden;
-			@extend %focusable;
-		}
-	}
+// #page {
+// 	header {
+// 		height: $baseline * 28;
+// 		background: #2E7FE8 url(../images/bg-header-pattern.png);
+// 	}
+// }
 
-}
+// .container {
+// 	@extend %container;
+// }
+
+// #logo-bank-wallet {
+// 	@extend %grid_3;
+// 	margin-top: $baseline;
+// 	height: $baseline * 2;
+// 	background: url(../images/logo-bank-wallet.png) no-repeat 0 7px;
+// }
+
+// #logo-kakao {
+// 	@extend %grid_2;
+// 	@extend %push_7;
+// 	margin-top: $baseline;
+// 	height: $baseline * 2;
+// 	text-transform: uppercase;
+// 	background: url(../images/logo-kakao.png) no-repeat 0 14px;
+// }
+
+// #banner {
+// 	@extend %container;
+// 	background: url(../images/banner-04-phone.png) no-repeat;
+// 	height: $baseline * 22;
+// 	margin-top: $baseline * 2;
+
+// 	.headline {
+// 		@extend %push_1;
+// 		@extend %grid_4;
+// 		top: 2px;
+// 		height: $baseline * 9;
+// 		// background: url(../images/banner-04-headline.png) no-repeat;
+// 		// background-position: 600px 10px;
+// 	}
+
+// }
