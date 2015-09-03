@@ -34,7 +34,7 @@ var config = {
 		'pretty': true
 	},
 	// Sass
-	'sass_engine': process.env.sass || 'ruby', // 'node' or 'ruby'
+	'sass_engine': process.env.sass || 'compass', // 'node' or 'ruby'
 	'sass': {
 		// compact, compressed, nested, expanded
 		'outputStyle' : 'expanded',
@@ -80,7 +80,11 @@ var config = {
 // 기본 업무
 gulp.task('default', [
 	'jade',
-	config.sass_engine === 'ruby' ? 'sass:ruby' : 'sass'
+	config.sass_engine === 'ruby' ?
+		'sass:ruby' :
+		config.sass_engine === 'compass' ?
+			'sass:compass' :
+			'sass'
 ], function() {
 	browserSync(config.browserSync)
 	gulp.start('images');
@@ -92,7 +96,9 @@ gulp.task('watch', function() {
 	gulp.watch(['src/**/*.jade'], ['watch:jade']);
 	config.sass_engine === 'ruby' ?
 		gulp.watch(['src/sass/**/*'], ['sass:ruby']) :
-		gulp.watch(['src/sass/**/*.scss'], ['sass']);
+		config.sass_engine === 'compass' ?
+			gulp.watch(['src/sass/**/*'], ['sass:compass']) :
+			gulp.watch(['src/sass/**/*.scss'], ['sass']);
 });
 
 gulp.task('watch:jade', ['jade'], reload);
@@ -136,12 +142,15 @@ gulp.task('sass:ruby', function() {
 gulp.task('sass:compass', function() {
 	gulp.src('src/sass/**/*')
 		.pipe(compass({
-			config_file: 'config.rb',
-			css: 'dist/css',
-			sass: 'src/sass',
-			image: 'dist/images'
+			css   : 'dist/css',
+			sass  : 'src/sass',
+			image : 'dist/images'
 		}))
-		.pipe(gulp.dest('dist/css'));
+		.on('error', errorLog)
+		.pipe( autoprefixer(config.autoprefixer) )
+		.pipe(gulp.dest('dist/css'))
+		.pipe( filter('**/*.css') )
+		.pipe( reload({stream: true}) );
 });
 
 // 업무: images 디렉토리 dist 디렉토리 안으로 이동
