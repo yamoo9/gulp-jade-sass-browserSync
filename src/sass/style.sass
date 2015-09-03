@@ -6,3 +6,23 @@
  * --------------------------------
 @import bourbon
 @import compass
+
+
+//
+ * --------------------------------
+ * Compass 스프라이트 이미지 자동 생성
+ * --------------------------------
+@import 'sprites/*.png'
+
+// +all-sprites-sprites
+
+$icons-list: icon-bag, icon-ball, icon-btn-drag, icon-bus, icon-cart-bag
+
+@each $icon-name in $icons-list
+	.#{$icon-name}
+		+sprites-sprite($icon-name)
+		width: sprites-sprite-width($icon-name)
+		height: sprites-sprite-height($icon-name)
+
+.icon-bag
+	+position(fixed, 100px	100px null null)
