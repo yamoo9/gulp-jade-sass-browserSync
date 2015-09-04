@@ -7,6 +7,7 @@
 require 'compass/import-once/activate'
 require 'sass-globbing'
 require 'bourbon'
+require 'susy'
 
 # ------------------------------------------------------------------------
 # 기본 언어 인코딩 설정
@@ -25,7 +26,7 @@ http_path       = "/"
 css_dir         = "dist/css"
 sass_dir        = "src/sass"
 javascripts_dir = "src/js"
-images_dir      = "src/images"
+images_dir      = "dist/images"
 fonts_dir       = "src/fonts"
 
 # ------------------------------------------------------------------------
@@ -39,7 +40,7 @@ output_style = (environment == :production) ? :compressed : :expanded
 
 # ------------------------------------------------------------------------
 # 상대 경로 지정 설정
-# relative_assets = true
+relative_assets = true
 
 # ------------------------------------------------------------------------
 # 변경된 내용 주석 처리 여부
@@ -56,9 +57,9 @@ sourcemap = true
 # ------------------------------------------------------------------------
 # 스프라이트 이미지 설정
 
-# generated_images_dir = "images/sprites"
+# generated_images_dir = "dist/images/sprites"
 # sprite_load_path     = [images_path]
-sprite_engine        = :oily_png # :chunky_png # :oily_png
+# sprite_engine        = :oily_png # :chunky_png # :oily_png
 # chunky_png_options   = {:compression => Zlib::BEST_COMPRESSION}
 
 # 스프라이트 이미지 생성 엔진 참고URL

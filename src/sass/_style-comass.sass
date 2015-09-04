@@ -1,0 +1,65 @@
+//
+ * --------------------------------
+ * Sass Framework
+ *  - Compass
+ * Sass Library
+ * 	= Bourbon
+ * --------------------------------
+@import bourbon
+@import compass/utilities/sprites
+
+//
+ * --------------------------------
+ * 스프라이트 이미지 레이아웃, 간격 설정
+ * ${디렉토리_이름}-spacing: 10px
+ * ${디렉토리_이름}-layout: vertical, horizontal, diagonal, smart
+
+// $one-spacing: 10px
+// $one-layout: smart
+
+//
+ * --------------------------------
+ * Compass 스프라이트 이미지 자동 생성
+ * --------------------------------
+@import 'one/*.png'
+// +all-one-sprites
+
+// $sprite-images: icon-bus icon-ball icon-puma-logo
+
+// @each $image-name in $sprite-images
+// 	.#{$image-name}
+// 		+one-sprite($image-name)
+// 		width: one-sprite-width($image-name)
+// 		height: one-sprite-height($image-name)
+
+// 스프라이트 맵 만들기
+$sprites-map: sprite-map('one/*.png')
+
+// 스프라이트 맵에서 이름 출력하기
+$sprite-image-names: sprite-names($sprites-map)
+
+// 출력된 이름을 반복하여 코드 자동 생성
+@each $image-name in $sprite-image-names
+	%#{$image-name}
+		+one-sprite($image-name)
+		width: one-sprite-width($image-name)
+		height: one-sprite-height($image-name)
+
+
+%ir
+	overflow: hidden
+	text-indent: -9999em
+
+// #bus
+// 	@extend %ir
+// 	@extend %icon-ball
+
+// #ball
+// 	@extend %ir
+// 	@extend %icon-ball
+
+@each $image-name in bus, ball, btn-drag, cart-bag, bag
+	##{$image-name}
+		@extend %ir
+		@extend %icon-#{$image-name}
+

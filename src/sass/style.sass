@@ -2,13 +2,58 @@
  * --------------------------------
  * Sass Framework
  *  - Compass
+ *
  * Sass Library
  * 	= Bourbon
+ *
+ * Grid Framework
+ *  - Susy
  * --------------------------------
-@import bourbon
-@import compass/utilities/sprites
+@import part/config
 
 //
  * --------------------------------
- * Compass 스프라이트 이미지 자동 생성
+ * 사용자 정의 스타일링 디자인
  * --------------------------------
+body
+	margin: 0
+
+#page
+	+container(2 1/12 show)
+	height: 100vh
+
+	#{headings()}
+		+margin(0 null)
+
+#page-header
+	height: $susy-gap * 8
+	background: rgba(#DAC494, .75)
+	color: darken(#DAC494, 35%)
+
+#gnb
+	height: $susy-gap * 3
+	background: rgba(#D47997, .75)
+	color: darken(#D47997, 35%)
+
+#page-main
+	height: $susy-gap * 25
+	background: rgba(#B4CE66, .75)
+	color: darken(#B4CE66, 35%)
+
+	.news, .showcase
+		height: $susy-gap * 16
+
+	.news
+		+span(1 of 2 1/12)
+		background: rgba(#57C6AA, .75)
+		color: darken(#57C6AA, 35%)
+
+	.showcase
+		+span(1 at 2 of 2 1/12)
+		background: rgba(#7045CF, .75)
+		color: darken(#7045CF, 35%)
+
+#page-footer
+	height: $susy-gap * 5
+	background: rgba(#57C5B4, .75)
+	color: darken(#57C5B4, 35%)

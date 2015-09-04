@@ -14,6 +14,8 @@
     "gulp-ruby-sass": "^1.4.0",
     "gulp-sass": "^2.0.4",
     "gulp-shell": "^0.4.2",
-    "gulp-sourcemaps": "^1.5.2"
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp.spritesmith": "^4.0.0",
+    "merge-stream": "^1.0.0"
   }
 }

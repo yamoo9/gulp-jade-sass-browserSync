@@ -9,7 +9,12 @@ var gulp         = require('gulp'),
 	sass         = require('gulp-sass'),
 	rubySass     = require('gulp-ruby-sass'),
 	compass      = require('gulp-compass'),
+
+	// CSS3 제조사의 접두사 처리 모듈
 	autoprefixer = require('gulp-autoprefixer'),
+
+	// 스프라이트 생성 모듈
+	spritesmith  = require('gulp.spritesmith'),
 
 	/* 유틸리티 ---------------------------------- */
 	gulpif       = require('gulp-if'),
@@ -17,6 +22,7 @@ var gulp         = require('gulp'),
 	sourcemaps   = require('gulp-sourcemaps'),
 	shell        = require('gulp-shell'),
 	mq           = require('gulp-combine-mq'),
+	merge        = require('merge-stream'),
 
 	/* Browser 서버/싱크 ------------------------- */
 	browserSync  = require('browser-sync'),
@@ -34,7 +40,7 @@ var config = {
 		'pretty': true
 	},
 	// Sass
-	'sass_engine': process.env.sass || 'compass', // 'node' or 'ruby'
+	'sass_engine': process.env.sass || 'ruby', // 'node' or 'ruby'
 	'sass': {
 		// compact, compressed, nested, expanded
 		'outputStyle' : 'expanded',
@@ -44,7 +50,7 @@ var config = {
 		'style'            : 'expanded', // compact, compressed, nested, expanded
 		'sourcemap'        : true,
 		'compass'          : true,
-		'require'          : ['bourbon'],
+		'require'          : ['bourbon', 'susy'],
 		// 'no-cache'         : true
 	},
 	'ruby_sass_sourcemaps': {
@@ -59,7 +65,7 @@ var config = {
 		'css'     : 'dist/css',
 		'sass'    : 'src/sass',
 		'image'   : 'dist/images',
-		'require' : ['bourbon']
+		'require' : ['bourbon', 'susy']
 	},
 	// 브라우저 리스트 참고 URL: https://github.com/ai/browserslist#queries
 	'autoprefixer': [
@@ -156,12 +162,34 @@ gulp.task('sass:compass', function() {
 		.pipe( reload({stream: true}) );
 });
 
+
+
 // 업무: images 디렉토리 dist 디렉토리 안으로 이동
 gulp.task('images', function() {
 	return gulp
 			.src('src/images/**/*')
 			.pipe( gulp.dest('dist/images') );
 });
+
+// 업무: 스프라이트 이미지 생성
+gulp.task('sprite', function() {
+	var spriteData = gulp
+		.src('src/images/test/*.png')
+		.pipe( spritesmith({
+			'imgName' : 'sprite.png',
+			'cssName' : '_sprite.sass'
+		}) );
+
+	// return spriteData.pipe( gulp.dest('dist') );
+
+	var imgStream = spriteData.img.pipe(gulp.dest('dist/images/'));
+	var cssStream = spriteData.css.pipe(gulp.dest('src/sass/'));
+
+	return merge(imgStream, cssStream);
+});
+
+
+
 
 // 명령어 환경의 코드를 Gulp에서 수행할 수 있도록 조치
 gulp.task('clean', shell.task('rm -rf dist src/output'));
