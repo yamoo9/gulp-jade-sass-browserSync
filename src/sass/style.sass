@@ -11,6 +11,14 @@
  * --------------------------------
 @import part/config
 
+$page-alpha:            0.5
+$page-bg-header:        #FD97D5
+$page-bg-gnb:           #89F5FD
+$page-bg-main:          #DEFF85
+$page-bg-main-news:     #8595FD
+$page-bg-main-showcase: #FB8285
+$page-bg-footer:        #301B28
+
 //
  * --------------------------------
  * 사용자 정의 스타일링 디자인
@@ -19,42 +27,32 @@ body
 	margin: 0
 
 #page
-	// +container(2 1/12 show)
-	height: 100vh
-
 	#{headings()}
+		+position(relative, $susy-gap null null $susy-gap)
+		width: 50%
 		+margin(0 null)
+		line-height: 1
 
 #page-header
-	height: $susy-gap * 8
-	background: rgba(#DAC494, .75)
-	color: darken(#DAC494, 35%)
+	background: rgba($page-bg-header, $page-alpha)
+	color: darken($page-bg-header, 35%)
 
 #gnb
-	height: $susy-gap * 3
-	background: rgba(#D47997, .75)
-	color: darken(#D47997, 35%)
+	background: rgba($page-bg-gnb, $page-alpha)
+	color: darken($page-bg-gnb, 35%)
 
 #page-main
-	+container(2 1/12 show)
-	// height: $susy-gap * 25
-	// background: rgba(#B4CE66, .75)
-	// color: darken(#B4CE66, 35%)
-
-	.news, .showcase
-		height: $susy-gap * 32
+	// background: rgba($page-bg-main, $page-alpha)
+	// color: darken($page-bg-main, 35%)
 
 	.news
-		+span(1 of 2 1/12)
-		background: rgba(#57C6AA, .75)
-		color: darken(#57C6AA, 35%)
+		background: rgba($page-bg-main-news, $page-alpha)
+		color: darken($page-bg-main-news, 35%)
 
 	.showcase
-		+span(1 at 2 of 2 1/12)
-		background: rgba(#7045CF, .75)
-		color: darken(#7045CF, 35%)
+		background: rgba($page-bg-main-showcase, $page-alpha)
+		color: darken($page-bg-main-showcase, 35%)
 
 #page-footer
-	height: $susy-gap * 5
-	background: rgba(#57C5B4, .75)
-	color: darken(#57C5B4, 35%)
+	background: rgba($page-bg-footer, $page-alpha)
+	color: darken($page-bg-footer, 35%)
