@@ -25,7 +25,7 @@
 
 // * --------------------------------
 // * 베이스라인 변수
-$base-font-size: 16px;
+$base-font-size: 14px;
 $base-line-height: $base-font-size * 1.5;
 $susy-gap: $base-line-height;
 
@@ -38,7 +38,7 @@ $bp-desktop: 980px;
 $susy: (
 	columns: 2,
 	gutters: 1/12,
-	gutter-position: inside
+	gutter-position: split
 );
 
 // * --------------------------------
@@ -87,7 +87,19 @@ $layout-tablet: 8 1/6;
 		// 	@include span(1 of 2 1/12);
 		// }
 		@include susy-breakpoint($bp-tablet, $layout-tablet) {
-			@include span(5 at 4);
+			@include span(6);
+		}
+
+		.post {
+			height: $susy-gap * 15;
+			@include susy-breakpoint($bp-tablet, $layout-tablet) {
+				@include span(1 of 4 inside);
+
+				// &:nth-of-type(1) { @include span(1 at 4 of 2 1/12 inside); }
+				// &:nth-of-type(2) { @include span(1 at 2 of 2 1/12 inside); }
+				// &:nth-of-type(3) { @include span(1 at 1 of 2 1/12 inside); }
+				// &:nth-of-type(4) { @include span(1 at 3 of 2 1/12 inside); }
+			}
 		}
 	}
 
@@ -100,7 +112,7 @@ $layout-tablet: 8 1/6;
 		// 	@include span(1 at 2 of 2 1/12);
 		// }
 		@include susy-breakpoint($bp-tablet, $layout-tablet) {
-			@include span(3);
+			@include span(2);
 		}
 	}
 

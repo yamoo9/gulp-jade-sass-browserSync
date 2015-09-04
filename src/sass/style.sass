@@ -21,6 +21,31 @@ $page-bg-footer:        #301B28
 
 //
  * --------------------------------
+ * 플레이스홀더 모듈
+// 화면에 감춰지지만, 읽혀지는 접근성 감춤 처리
+%a11y-hidden
+	overflow: hidden
+	position: absolute
+	clip:     rect(0 0 0 0)
+	clip:     rect(0,0,0,0)
+	width:    1px
+	height:   1px
+	margin:   -1px
+	padding:  0
+	border:   0
+
+	// 포커스 처리 시 화면에 보여짐.
+	&%focusable:focus,
+	&%focusable:active
+		overflow: visible
+		position: static
+		clip:     auto
+		width:    auto
+		height:   auto
+		margin:   0
+
+//
+ * --------------------------------
  * 사용자 정의 스타일링 디자인
  * --------------------------------
 body
@@ -28,10 +53,11 @@ body
 
 #page
 	#{headings()}
-		+position(relative, $susy-gap null null $susy-gap)
-		width: 50%
-		+margin(0 null)
-		line-height: 1
+		@extend %a11y-hidden
+		// +position(relative, $susy-gap null null $susy-gap)
+		// width: 50%
+		// +margin(0 null)
+		// line-height: 1
 
 #page-header
 	background: rgba($page-bg-header, $page-alpha)
@@ -48,6 +74,13 @@ body
 	.news
 		background: rgba($page-bg-main-news, $page-alpha)
 		color: darken($page-bg-main-news, 35%)
+
+		.post
+			min-height: $susy-gap * 6
+			color: #fff
+			@for $i from 2 to 6
+				&:nth-child(#{$i})
+					background: rgba(shade($page-bg-main-news, $i * 20%), 0.7)
 
 	.showcase
 		background: rgba($page-bg-main-showcase, $page-alpha)
