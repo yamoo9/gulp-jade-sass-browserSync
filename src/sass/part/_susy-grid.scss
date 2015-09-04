@@ -1,44 +1,111 @@
 // * -----------------------------------------
 // * Susy 그리드 프레임워크
 // * http://susydocs.oddbird.net/en/latest/
+// *
+// * Mobile First > Tabelt > Desktop
+// * Flexible <------------> Static
+// * Simple   <------------> Complex
+// *
+// * Desktop First (Static Website)
+// *
+// * Breakpoint
+// * M - T - D
+// * 0 >> 568 >> 980
 // * -----------------------------------------
+
+// * --------------------------------
+// * Susy Mixins
+// * 1. container()
+// * 2. span()
+// *
+// * Susy Global Settings
+// * Sass -> Scss
+// * --------------------------------
 @import "susy";
 
-$base-line-height: 24px;
+// * --------------------------------
+// * 베이스라인 변수
+$base-font-size: 16px;
+$base-line-height: $base-font-size * 1.5;
 $susy-gap: $base-line-height;
 
+// * --------------------------------
+// * 중단점 변수
+$bp-tablet: 568px;
+$bp-desktop: 980px;
+
+// Susy 전역 레이아웃 설정
+$susy: (
+	columns: 2,
+	gutters: 1/12,
+	gutter-position: inside
+);
+
+// * --------------------------------
+// * 레이아웃 변수
+$layout-tablet: 8 1/6;
+
+
 #page {
-	@include container(2 1/12 show);
+	@include container(show);
 	min-height: 100vh;
+
+	@include susy-breakpoint($bp-tablet) {
+		@include container( append($layout-tablet, show) );
+	}
 }
 
 #page-header {
-	height: $susy-gap * 8;
+	min-height: $susy-gap * 5;
+
+	@include susy-breakpoint($bp-tablet) {
+		min-height: $susy-gap * 3;
+	}
 }
 
 #gnb {
-	height: $susy-gap * 3;
+	min-height: $susy-gap * 4;
+	@include susy-breakpoint($bp-tablet) {
+		min-height: $susy-gap * 3;
+	}
 }
 
 #page-main {
 	@include container;
-	// height: $susy-gap * 25
+	// min-height: $susy-gap * 25
 
 	.news, .showcase {
-		// height: $susy-gap * 32;
-		height: $susy-gap * 15;
+		// min-height: $susy-gap * 32;
+		min-height: $susy-gap * 15;
 	}
 
 	.news {
-		// @include span(1 of 2 1/12);
+		// Mobile
+
+		// Tablet
+		// @media screen and (min-width: $bp-tablet) {
+		// 	@include span(1 of 2 1/12);
+		// }
+		@include susy-breakpoint($bp-tablet, $layout-tablet) {
+			@include span(5 at 4);
+		}
 	}
 
 	.showcase {
-		// @include span(1 at 2 of 2 1/12);
+		// min-height: $susy-gap * 8;
+		// Mobile
+
+		// Tablet
+		// @media screen and (min-width: $bp-tablet) {
+		// 	@include span(1 at 2 of 2 1/12);
+		// }
+		@include susy-breakpoint($bp-tablet, $layout-tablet) {
+			@include span(3);
+		}
 	}
 
 } // #page-main
 
 #page-footer {
-	height: $susy-gap * 5;
+	min-height: $susy-gap * 3;
 }
