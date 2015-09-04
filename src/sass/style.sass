@@ -19,7 +19,7 @@ body
 	margin: 0
 
 #page
-	+container(2 1/12 show)
+	// +container(2 1/12 show)
 	height: 100vh
 
 	#{headings()}
@@ -36,12 +36,13 @@ body
 	color: darken(#D47997, 35%)
 
 #page-main
-	height: $susy-gap * 25
-	background: rgba(#B4CE66, .75)
-	color: darken(#B4CE66, 35%)
+	+container(2 1/12 show)
+	// height: $susy-gap * 25
+	// background: rgba(#B4CE66, .75)
+	// color: darken(#B4CE66, 35%)
 
 	.news, .showcase
-		height: $susy-gap * 16
+		height: $susy-gap * 32
 
 	.news
 		+span(1 of 2 1/12)
