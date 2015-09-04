@@ -5,8 +5,8 @@
 # ------------------------------------------------------------------------
 # Compass 플러그인 추가
 require 'compass/import-once/activate'
+require 'sass-globbing'
 require 'bourbon'
-# require 'sass-globbing'
 
 # ------------------------------------------------------------------------
 # 기본 언어 인코딩 설정
@@ -58,7 +58,7 @@ sourcemap = true
 
 # generated_images_dir = "images/sprites"
 # sprite_load_path     = [images_path]
-# sprite_engine        = :chunky_png # :oily_png
+sprite_engine        = :oily_png # :chunky_png # :oily_png
 # chunky_png_options   = {:compression => Zlib::BEST_COMPRESSION}
 
 # 스프라이트 이미지 생성 엔진 참고URL

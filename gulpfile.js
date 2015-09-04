@@ -1,4 +1,4 @@
-var gulp        = require('gulp'),
+var gulp         = require('gulp'),
 
 	/* 컴파일 엔진 -------------------------------- */
 	// Node.js 템플릿 엔젠
@@ -53,6 +53,13 @@ var config = {
 			'includeContent' : false,
 			'sourceRoot'     : 'source',
 		},
+	},
+	'compass' : {
+		'style'   : 'expanded',
+		'css'     : 'dist/css',
+		'sass'    : 'src/sass',
+		'image'   : 'dist/images',
+		'require' : ['bourbon']
 	},
 	// 브라우저 리스트 참고 URL: https://github.com/ai/browserslist#queries
 	'autoprefixer': [
@@ -141,11 +148,7 @@ gulp.task('sass:ruby', function() {
 // Compass
 gulp.task('sass:compass', function() {
 	gulp.src('src/sass/**/*')
-		.pipe(compass({
-			css   : 'dist/css',
-			sass  : 'src/sass',
-			image : 'dist/images'
-		}))
+		.pipe(compass( config.compass ))
 		.on('error', errorLog)
 		.pipe( autoprefixer(config.autoprefixer) )
 		.pipe(gulp.dest('dist/css'))

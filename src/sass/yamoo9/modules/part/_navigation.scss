@@ -1,0 +1,16 @@
+%navigation {
+	ul {
+		@extend %reset-list;
+		@extend %cf;
+	}
+	a {
+		display: block;
+		text-decoration: none;
+	}
+}
+
+%horizontal {
+	li {
+		float: left;
+	}
+}
