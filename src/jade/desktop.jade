@@ -1,0 +1,28 @@
+extends part/_page_template
+
+block stylesheets
+	link(rel="stylesheet", href="css/only-desktop-design.css")
+
+block header
+	header#page-header(role="banner")
+		h1 Page Header
+
+block gnb
+	nav#gnb(role="navigation")
+		h2 Global NavigationBar
+
+block main
+	main#page-main(role="main")
+		//- h2 Main Contents
+		.news
+			h3 news
+			.post
+			.post
+			.post
+			.post
+		.showcase
+			h4 showcase
+
+block footer
+	footer#page-footer(role="contentinfo")
+		h3 Page Footer

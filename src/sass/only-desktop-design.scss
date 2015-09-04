@@ -1,0 +1,13 @@
+@import "susy";
+
+$susy: (
+	columns: 12,
+	gutter-position: split,
+	debug: (
+		image: show
+	)
+);
+
+#page {
+	@include container(1200px);
+}
