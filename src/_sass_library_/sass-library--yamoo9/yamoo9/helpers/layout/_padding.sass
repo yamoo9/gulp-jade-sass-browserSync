@@ -1,0 +1,52 @@
+=padding($args: 0)
+
+	@if type-of($args) == 'list'
+
+		@if type-of( nth($args, 1) ) == 'string'
+
+			@each $dir in top, left, bottom, right
+
+				$i: index($args, $dir)
+
+				@if $i
+					padding-#{$dir}: nth($args, $i + 1)
+
+		@else
+
+			$l: length($args)
+
+			@if $l == 1
+				padding: $args
+
+			@else if $l == 2
+				$t-b: nth($args, 1)
+				$r-l: nth($args, 2)
+				padding: $t-b $r-l
+
+			@else if $l == 3
+				$t: nth($args, 1)
+				$r-l: nth($args, 2)
+				$b: nth($args, 3)
+				padding: $t $r-l $b
+
+			@else
+				$t: nth($args, 1)
+				$r: nth($args, 2)
+				$b: nth($args, 3)
+				$l: nth($args, 4)
+				padding: $t $r $b $l
+
+	@else
+		padding: 0
+
+
+
+// =padding($args: 0)
+// 	@if $args != 0
+// 		@each $dir in top, left, bottom, right
+// 			$i: index($args, $dir)
+
+// 			@if $i
+// 				padding-#{$dir}: nth($args, $i + 1)
+// 	@else
+// 		padding: 0

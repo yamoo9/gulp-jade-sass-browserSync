@@ -120,13 +120,13 @@ body {
 }
 
 #page-header {
-  background: rgba(253, 151, 213, 0.5);
-  color: #dd0488;
+  background: rgba(134, 170, 253, 0.5);
+  color: #0340cd;
 }
 
 #gnb {
-  background: rgba(137, 245, 253, 0.5);
-  color: #04c2d0;
+  background: rgba(249, 0, 10, 0.5);
+  color: #470003;
 }
 
 #page-main .news {
@@ -150,8 +150,8 @@ body {
   background: rgba(0, 0, 0, 0.7);
 }
 #page-main .showcase {
-  background: rgba(251, 130, 133, 0.5);
-  color: #c4060b;
+  background: rgba(65, 255, 83, 0.5);
+  color: #008e0d;
 }
 
 #page-footer {

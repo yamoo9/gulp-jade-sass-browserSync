@@ -1,13 +1,62 @@
 @import "susy";
 
+$base-line-height: 24px;
+
 $susy: (
 	columns: 12,
+	gutters: 20px/80px, // (80px 20px)
 	gutter-position: split,
+	column-width: 80px,
+	// output: isolate,
+	math: static,
+	global-box-sizing: border-box,
 	debug: (
-		image: show
+		image: show,
+		color: rgba(#FFB03B, 0.3),
+		output: background,
+		toggle: right top
 	)
 );
 
+body {
+	margin: 0;
+}
+
 #page {
-	@include container(1200px);
+
+	@include container();
+
+	* {
+		margin: {
+			top: 0;
+			bottom: 0;
+		}
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		line-height: 1;
+	}
+
+	min-height: 100vh;
+
+	header {
+		@include span(full);
+		min-height: $base-line-height * 6;
+		background: rgba(#DAC494, .65);
+	}
+
+	nav {
+		@include span(full);
+		min-height: $base-line-height * 3;
+		background: rgba(#887956, .65);
+	}
+
+	main {
+
+	}
+
+	footer {
+
+	}
+
 }

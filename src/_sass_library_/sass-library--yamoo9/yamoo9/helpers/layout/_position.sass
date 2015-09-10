@@ -1,0 +1,29 @@
+//
+ * --------------------------------
+ * position 믹스인
+ * --------------------------------
+=position($position, $args)
+	position: $position
+
+	@if $args != null
+		@each $dir in top, left, bottom, right, z-index
+			$i: index($args, $dir)
+
+			@if $i
+				#{$dir}: nth($args, $i + 1)
+
+//
+ * --------------------------------
+ * 단축 믹스인
+ * --------------------------------
+=static()
+	+position(static)
+
+=absolute($args: null)
+	+position(absolute, $args)
+
+=relative($args: null)
+	+position(relative, $args)
+
+=fixed($args: null)
+	+position(fixed, $args)

@@ -1,0 +1,44 @@
+@mixin margin($args: 0) {
+	@if type-of($args) == "list" {
+		@if type-of(nth($args, 1)) == "string" {
+			@each $dir in top, left, bottom, right {
+				$i: index($args, $dir);
+
+				@if $i {
+					margin-#{$dir}: nth($args, $i + 1);
+				}
+			}
+		}
+		@else {
+			$l: length($args);
+
+			@if $l == 1 {
+				margin: $args;
+			}
+			@else if $l == 2 {
+				$t-b: nth($args, 1);
+				$r-l: nth($args, 2);
+
+				margin: $t-b $r-l;
+			}
+			@else if $l == 3 {
+				$t: nth($args, 1);
+				$r-l: nth($args, 2);
+				$b: nth($args, 3);
+
+				margin: $t $r-l $b;
+			}
+			@else {
+				$t: nth($args, 1);
+				$r: nth($args, 2);
+				$b: nth($args, 3);
+				$l: nth($args, 4);
+
+				margin: $t $r $b $l;
+			}
+		}
+	}
+	@else {
+		margin: 0;
+	}
+}
