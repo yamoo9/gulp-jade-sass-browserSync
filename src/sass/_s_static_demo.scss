@@ -1,0 +1,62 @@
+#page
+	+container()
+	min-height: 100vh
+
+	header
+		+full
+		min-height: $bl * 10
+		+bg-color(#74C0FF, 0.7)
+
+		.logo
+			+span(4)
+			+bg-color(#FFE061, 0.7)
+			min-height: $bl * 10
+
+		.utils
+			+span(3)
+			min-height: $bl * 10
+			+bg-color(#84FF4F, 0.7)
+
+		.search
+			+span(last 5)
+			min-height: $bl * 10
+			+bg-color(#FC4B3E, 0.7)
+
+			.front
+				+span(3)
+				min-height: $bl * 5
+				+bg-color(#F818A9, 0.7)
+			.back
+				+span(last 2)
+				min-height: $bl * 5
+				+bg-color(#F8FF31, 0.7)
+
+	nav
+		+full
+		min-height: $bl * 6
+		+bg-color(#B655FF, 0.7)
+
+	main
+		+span(8)
+		+bg-color(#8BBBFF, 0.7)
+		min-height: $bl * 42
+
+	aside
+		+span(4 last)
+		+bg-color(#99FF79, 0.7)
+		min-height: $bl * 42
+
+		ul.gallery
+			@extend %reset-list
+
+			li
+				+gallery(2 of 4)
+				margin-bottom: gutter()
+
+				img
+					+rwd-image
+
+	footer
+		+full
+		+bg-color(#7DFFE1, 0.7)
+		min-height: $bl * 8

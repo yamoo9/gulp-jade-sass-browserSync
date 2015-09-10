@@ -1,23 +1,63 @@
+*, *:before, *:after {
+  box-sizing: content-box;
+}
+
 body {
   margin: 0;
 }
 
 #page {
-  width: 1200px;
+  max-width: 980px;
   margin-left: auto;
   margin-right: auto;
-  background-image: -webkit-linear-gradient(left, transparent 10%, rgba(102, 102, 255, 0.25) 10%, rgba(179, 179, 255, 0.25) 90%, transparent 90%), -webkit-linear-gradient(top, #000 1px, transparent 1px);
-  background-image: linear-gradient(to right, transparent 10%, rgba(102, 102, 255, 0.25) 10%, rgba(179, 179, 255, 0.25) 90%, transparent 90%), linear-gradient(to bottom, #000 1px, transparent 1px);
-  background-size: 100px, 100% 24px;
+  background-image: -webkit-linear-gradient(left, pink, white 47.61905%, transparent 47.61905%, transparent 52.38095%, pink 52.38095%, white), -webkit-linear-gradient(top, #000 1px, transparent 1px);
+  background-image: linear-gradient(to right, pink, white 47.61905%, transparent 47.61905%, transparent 52.38095%, pink 52.38095%, white), linear-gradient(to bottom, #000 1px, transparent 1px);
+  background-size: 100% 24px;
   background-origin: content-box, border-box;
   background-clip: content-box, border-box;
   background-position: left top;
-  height: 100vh;
+  min-height: 100vh;
 }
 #page:after {
   content: " ";
   display: block;
   clear: both;
+}
+@media (min-width: 670px) {
+  #page {
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: -webkit-linear-gradient(left, blue, #4d4dff 47.36842%, transparent 47.36842%, transparent 50%, blue 50%, #4d4dff 81.57895%, transparent 81.57895%, transparent 84.21053%, blue 84.21053%, #4d4dff), -webkit-linear-gradient(top, #000 1px, transparent 1px);
+    background-image: linear-gradient(to right, blue, #4d4dff 47.36842%, transparent 47.36842%, transparent 50%, blue 50%, #4d4dff 81.57895%, transparent 81.57895%, transparent 84.21053%, blue 84.21053%, #4d4dff), linear-gradient(to bottom, #000 1px, transparent 1px);
+    background-size: 100% 24px;
+    background-origin: content-box, border-box;
+    background-clip: content-box, border-box;
+    background-position: left top;
+  }
+  #page:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+}
+@media (min-width: 1140px) {
+  #page {
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: -webkit-linear-gradient(left, red, #ff4d4d 13.95349%, transparent 13.95349%, transparent 15.11628%, red 15.11628%, #ff4d4d 84.88372%, transparent 84.88372%, transparent 86.04651%, red 86.04651%, #ff4d4d), -webkit-linear-gradient(top, #000 1px, transparent 1px);
+    background-image: linear-gradient(to right, red, #ff4d4d 13.95349%, transparent 13.95349%, transparent 15.11628%, red 15.11628%, #ff4d4d 84.88372%, transparent 84.88372%, transparent 86.04651%, red 86.04651%, #ff4d4d), linear-gradient(to bottom, #000 1px, transparent 1px);
+    background-size: 100% 24px;
+    background-origin: content-box, border-box;
+    background-clip: content-box, border-box;
+    background-position: left top;
+  }
+  #page:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
 }
 
 

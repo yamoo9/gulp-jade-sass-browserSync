@@ -1,6 +1,12 @@
 @import susy-layout
 @import yamoo9/yamoo9
 
+$bl: $base-line-height
+
++global-box-sizing
+
++layout($mobile-layout)
+
 //
  * --------------------------------
  * 페이지 레이아웃
@@ -9,5 +15,44 @@ body
 	margin: 0
 
 #page
-	+container(show)
-	height: 100vh
+	+container()
+	min-height: 100vh
+
+	+susy-breakpoint($tablet, $tablet-layout)
+		+container()
+
+	+susy-breakpoint($desktop, $desktop-layout)
+		+container()
+
+	// header
+	// 	+full
+	// 	min-height: $bl * 10
+	// 	+bg-color(#333, 0.4)
+
+	// 	.logo
+	// 		+span(2 at 4)
+	// 		min-height: $bl * 10
+	// 		+bg-color(#FC4A54, 0.4)
+
+	// 	.utils
+	// 		+span(2 at 2)
+	// 		min-height: $bl * 10
+	// 		+bg-color(#25A04D, 0.4)
+
+
+// +layout($mobile-layout)
+
+// #page header
+// 	+container()
+// 	min-height: $bl * 15
+// 	+bg-color(#333, 0.2)
+
+// 	.logo
+// 		+span(1 at 2)
+// 		min-height: $bl * 10
+// 		+bg-color(#FC4A54, 0.4)
+
+// 	.utils
+// 		+span(1 at 1)
+// 		min-height: $bl * 10
+// 		+bg-color(#E6FF3A, 0.4)
