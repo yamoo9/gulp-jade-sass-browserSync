@@ -1,91 +1,17 @@
-//
- * --------------------------------
- * Sass Framework
- *  - Compass
- *
- * Sass Library
- * 	= Bourbon
- *
- * Grid Framework
- *  - Susy
- * --------------------------------
-@import part/config
-
-$page-alpha:            0.5
-$page-bg-header:        #86AAFD
-$page-bg-gnb:           #F9000A
-$page-bg-main:          #DEFF85
-$page-bg-main-news:     #8595FD
-$page-bg-main-showcase: #41FF53
-$page-bg-footer:        #301B28
+@import susy-layout
+@import yamoo9/yamoo9
 
 //
  * --------------------------------
- * 플레이스홀더 모듈
-// 화면에 감춰지지만, 읽혀지는 접근성 감춤 처리
-%a11y-hidden
-	overflow: hidden
-	position: absolute
-	clip:     rect(0 0 0 0)
-	clip:     rect(0,0,0,0)
-	width:    1px
-	height:   1px
-	margin:   -1px
-	padding:  0
-	border:   0
-
-	// 포커스 처리 시 화면에 보여짐.
-	&%focusable:focus,
-	&%focusable:active
-		overflow: visible
-		position: static
-		clip:     auto
-		width:    auto
-		height:   auto
-		margin:   0
-
-//
- * --------------------------------
- * 사용자 정의 스타일링 디자인
+ * 페이지 레이아웃
  * --------------------------------
 body
 	margin: 0
 
 #page
-	#{headings()}
-		@extend %a11y-hidden
-		// +position(relative, $susy-gap null null $susy-gap)
-		// width: 50%
-		// +margin(0 null)
-		// line-height: 1
+	+container(show)
+	height: 100vh
 
-#page-header
-	background: rgba($page-bg-header, $page-alpha)
-	color: darken($page-bg-header, 35%)
-
-#gnb
-	background: rgba($page-bg-gnb, $page-alpha)
-	color: darken($page-bg-gnb, 35%)
-
-#page-main
-	// background: rgba($page-bg-main, $page-alpha)
-	// color: darken($page-bg-main, 35%)
-
-	.news
-		background: rgba($page-bg-main-news, $page-alpha)
-		color: darken($page-bg-main-news, 35%)
-
-		.post
-			min-height: $susy-gap * 6
-			color: #fff
-			@for $i from 2 to 6
-				&:nth-child(#{$i})
-					background: rgba(shade($page-bg-main-news, $i * 20%), 0.7)
-
-	.showcase
-		background: rgba($page-bg-main-showcase, $page-alpha)
-		color: darken($page-bg-main-showcase, 35%)
-
-#page-footer
-	background: rgba($page-bg-footer, $page-alpha)
-	color: darken($page-bg-footer, 35%)
+.test
+	+padding(10px null 20px)
+	+absolute(top 10px z-index 20)
